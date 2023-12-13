@@ -476,6 +476,43 @@ data types match what they should:</p>
 <li>Gender are all character strings</li>
 </ul>
 </div>
+<div id="filtering-values-outside-of-test-boundaries" class="section level3">
+<h3>Filtering values outside of test boundaries</h3>
+<pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI  
+##  Min.   : 1.00   Length:88          Min.   : 8.00   Min.   :49.00  
+##  1st Qu.:22.75   Class :character   1st Qu.:12.00   1st Qu.:57.00  
+##  Median :44.50   Mode  :character   Median :14.00   Median :60.00  
+##  Mean   :44.85                      Mean   :13.99   Mean   :60.12  
+##  3rd Qu.:66.25                      3rd Qu.:16.00   3rd Qu.:64.00  
+##  Max.   :90.00                      Max.   :20.00   Max.   :71.00  
+##  posttrial_GAD   posttrial_STAI 
+##  Min.   : 6.00   Min.   :47.00  
+##  1st Qu.:11.75   1st Qu.:56.75  
+##  Median :14.00   Median :61.00  
+##  Mean   :13.59   Mean   :61.06  
+##  3rd Qu.:16.00   3rd Qu.:66.00  
+##  Max.   :21.00   Max.   :75.00</code></pre>
+<pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI  
+##  Min.   : 1.00   Length:88          Min.   :12.00   Min.   :49.00  
+##  1st Qu.:23.75   Class :character   1st Qu.:15.00   1st Qu.:57.75  
+##  Median :45.50   Mode  :character   Median :16.00   Median :61.00  
+##  Mean   :45.76                      Mean   :15.88   Mean   :60.81  
+##  3rd Qu.:68.25                      3rd Qu.:17.00   3rd Qu.:64.25  
+##  Max.   :90.00                      Max.   :20.00   Max.   :74.00  
+##  posttrial_GAD   posttrial_STAI 
+##  Min.   : 8.00   Min.   :44.00  
+##  1st Qu.:12.00   1st Qu.:52.00  
+##  Median :14.00   Median :56.00  
+##  Mean   :13.88   Mean   :57.49  
+##  3rd Qu.:16.00   3rd Qu.:63.00  
+##  Max.   :19.00   Max.   :69.00</code></pre>
+<p>Data has also been cleaned above to remove any test responses outside
+of the test boundaries. GAD test have a lower score limit of 0 and an
+upper limit of 21, while STAI has a lower and upper limit of 20 and 80
+respectively. When compared to earlier data chats we can see that no
+values min or max for any test lie outside of expected results now and
+we have no null or incorrect types values either. See <a href="#references">references for sources on test boundaries</a></p>
+</div>
 <div id="abstract" class="section level3">
 <h3>Abstract <a name="abstract"></a></h3>
 </div>
@@ -497,9 +534,9 @@ data types match what they should:</p>
 <li><a href="https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html">Code
 for Knitr</a></li>
 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6945947/#:~:text=Each%20question%20is%20rated%20on,T%20and%20STAI%2DS%20subscales.">STAI
-Mix &amp; Max values</a></li>
+Min &amp; Max values</a></li>
 <li><a href="https://www.corc.uk.net/outcome-experience-measures/generalised-anxiety-disorder-assessment-gad-7/#:~:text=GAD%2D7%20total%20score%20for%20the%20seven%20items%20ranges%20from%200%20to%2021.">GAD
-Mix &amp; Max values</a></li>
+Min &amp; Max values</a></li>
 </ul>
 </div>
 
