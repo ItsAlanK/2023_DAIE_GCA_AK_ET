@@ -357,13 +357,29 @@ Efficacy in the Treatment of GAD</h1>
 </div>
 
 
-<div id="setup" class="section level1">
-<h1>Setup</h1>
+<!-- This is what a comment looks like-->
+<div id="table-of-contents" class="section level3">
+<h3>Table of Contents</h3>
+<ol style="list-style-type: decimal">
+<li><a href="#setup">Setup</a></li>
+<li><a href="#data-load">Data Loading</a></li>
+<li><a href="#inspection">Initial Inspection</a></li>
+<li><a href="#cleanup">Data Cleanup</a></li>
+<li><a href="#abstract">Abstract</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#method">Method</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#discussion">Discussion</a></li>
+<li><a href="#references">References</a></li>
+</ol>
+</div>
+<div id="setup" class="section level3">
+<h3>Setup <a name="setup"></a></h3>
 <pre class="r"><code>#Setting this up to define all chunks to show both code and output: 
 knitr::opts_chunk$set(echo = TRUE)</code></pre>
 </div>
-<div id="data-loading" class="section level1">
-<h1>Data Loading</h1>
+<div id="data-loading" class="section level3">
+<h3>Data Loading <a name="data-load"></a></h3>
 <p>Loading our Datasets into R Studio</p>
 <pre class="r"><code>control_group &lt;- read_csv(&quot;GROUP_12_2023_GCA_RESULTS_CONTROL.csv&quot;)</code></pre>
 <pre><code>## Rows: 90 Columns: 6
@@ -384,8 +400,13 @@ knitr::opts_chunk$set(echo = TRUE)</code></pre>
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div id="initial-inspection" class="section level1">
-<h1>Initial Inspection</h1>
+<div id="initial-inspection" class="section level3">
+<h3>Initial Inspection <a name="inspection"></a></h3>
+<p>Initial inspection shows the same data types on both datasets.
+Patients are categorized by gender, and there are numeric scores for
+Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory
+(STAI). We have results both for pretrial testing and post trial
+testing.</p>
 <pre class="r"><code># Display the first few rows of the datasets
  head(control_group)</code></pre>
 <pre><code>## # A tibble: 6 × 6
@@ -407,6 +428,9 @@ knitr::opts_chunk$set(echo = TRUE)</code></pre>
 ## 4         4 male             19            69            16             61
 ## 5         5 male             14            58             9             59
 ## 6         6 female           14            55            13             51</code></pre>
+<p>The summary is showing some insight on how the data is distributed,
+there are also some outliers within minimum values in scores that might
+need to be looked at during our cleaning process.</p>
 <pre class="r"><code># Summary of the datasets 
  summary(control_group)</code></pre>
 <pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI  
@@ -439,8 +463,8 @@ knitr::opts_chunk$set(echo = TRUE)</code></pre>
 ##  3rd Qu.:16.0   3rd Qu.:63.00  
 ##  Max.   :19.0   Max.   :93.00</code></pre>
 </div>
-<div id="data-cleanup" class="section level1">
-<h1>Data Cleanup</h1>
+<div id="data-cleanup" class="section level3">
+<h3>Data Cleanup <a name="cleanup"></a></h3>
 <p>During the data cleanup stage we check for any missing values and
 found 0 missing values in the control group and 0 missing values in the
 experimental group meaning no participants need to be thrown out for
@@ -448,19 +472,9 @@ lack of data.</p>
 <p>Upon inspecting data types by viewing the structure of the data, all
 data types match what they should:</p>
 <ul>
-<li></li>
+<li>Patient ID, and test results are all numbers</li>
+<li>Gender are all character strings</li>
 </ul>
-<!-- This is what a comment looks like-->
-<div id="table-of-contents" class="section level3">
-<h3>Table of Contents</h3>
-<ol style="list-style-type: decimal">
-<li><a href="#abstract">Abstract</a></li>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#method">Method</a></li>
-<li><a href="#results">Results</a></li>
-<li><a href="#discussion">Discussion</a></li>
-<li><a href="#references">References</a></li>
-</ol>
 </div>
 <div id="abstract" class="section level3">
 <h3>Abstract <a name="abstract"></a></h3>
@@ -480,7 +494,6 @@ data types match what they should:</p>
 <div id="references" class="section level3">
 <h3>References <a name="references"></a></h3>
 <p>Code for Knitr: <a href="https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html" class="uri">https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html</a></p>
-</div>
 </div>
 
 
