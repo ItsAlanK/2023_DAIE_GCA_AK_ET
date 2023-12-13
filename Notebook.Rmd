@@ -17,7 +17,11 @@ library(knitr)
 5. [Discussion](#discussion)
 6. [References](#references)
 
+### Abstract <a name="abstract"></a>
 
+
+
+### Introduction <a name="introduction"></a>
 ```{r echo=FALSE}
 print(RESULTS_CONTROL)
 ```
@@ -25,3 +29,22 @@ print(RESULTS_CONTROL)
 ```{r echo=FALSE}
 print(RESULTS_EXPERIMENTAL)
 ```
+
+
+
+### Method <a name="method"></a>
+
+
+
+
+### Results <a name="results"></a>
+
+
+
+
+### Discussion <a name="discussion"></a>
+
+
+
+
+### References <a name="references"></a>
