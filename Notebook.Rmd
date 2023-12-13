@@ -108,4 +108,6 @@ Upon inspecting data types by viewing the structure of the data, all data types 
 ### References <a name="references"></a>
 
 
-Code for Knitr: https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html
+- [Code for Knitr](https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html)
+- [STAI Mix & Max values](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6945947/#:~:text=Each%20question%20is%20rated%20on,T%20and%20STAI%2DS%20subscales.)
+- [GAD Mix & Max values](https://www.corc.uk.net/outcome-experience-measures/generalised-anxiety-disorder-assessment-gad-7/#:~:text=GAD%2D7%20total%20score%20for%20the%20seven%20items%20ranges%20from%200%20to%2021.)
