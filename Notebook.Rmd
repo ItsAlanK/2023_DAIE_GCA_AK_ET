@@ -5,11 +5,25 @@ date: "13/02/2023"
 output: html_document
 ---
 
+# Setup 
 ```{r include=FALSE}
+install.packages("tidyverse")
+
 if(!require("knitr"))
-  install.packages("knitr")
 library(knitr)
+
+# Load the packages, loading tidyverse for readr, dplyr, magrittr, and ggplot2
+library(tidyverse)
 ```
+
+
+
+```{r} 
+#Setting this up to define all chunks to show both code and output: https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
 
 <!-- This is what a comment looks like-->
 ### Table of Contents
@@ -20,6 +34,7 @@ library(knitr)
 4. [Results](#results)
 5. [Discussion](#discussion)
 6. [References](#references)
+
 
 ### Abstract <a name="abstract"></a>
 
