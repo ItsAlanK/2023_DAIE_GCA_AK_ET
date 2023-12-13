@@ -48,17 +48,23 @@ The summary is showing some insight on how the data is distributed, there are al
 ```
 
 # Data Cleanup
-```{r}
+```{r include=FALSE}
 # Check for missing values
-sum(is.na(control_group)) 
-sum(is.na(experimental_group)) 
+cntlMissingCount <- sum(is.na(control_group)) 
+expMissingCount <- sum(is.na(experimental_group)) 
 
 # Verifying data types 
-str(control_group) 
-str(experimental_group) 
+cntlDataTypes <- str(control_group) 
+expDataTypes <- str(experimental_group) 
 
 ```
 
+During the data cleanup stage we check for any missing values and found `r cntlMissingCount` missing values in the control group and `r expMissingCount` missing values in the experimental group meaning no participants need to be thrown out for lack of data.
+
+Upon inspecting data types by viewing the structure of the data, all data types match what they should:
+
+- Patient ID, and test results are all numbers
+- Gender are all character strings
 
 <!-- This is what a comment looks like-->
 ### Table of Contents

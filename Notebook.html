@@ -441,48 +441,15 @@ knitr::opts_chunk$set(echo = TRUE)</code></pre>
 </div>
 <div id="data-cleanup" class="section level1">
 <h1>Data Cleanup</h1>
-<pre class="r"><code># Check for missing values
-sum(is.na(control_group)) </code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>sum(is.na(experimental_group)) </code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code># Verifying data types 
-str(control_group) </code></pre>
-<pre><code>## spc_tbl_ [90 × 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
-##  $ patientID     : num [1:90] 1 2 3 4 5 6 7 8 9 10 ...
-##  $ gender        : chr [1:90] &quot;male&quot; &quot;male&quot; &quot;male&quot; &quot;male&quot; ...
-##  $ pretrial_GAD  : num [1:90] 15 11 11 9 15 13 15 9 11 14 ...
-##  $ pretrial_STAI : num [1:90] 64 54 53 51 64 58 64 52 54 58 ...
-##  $ posttrial_GAD : num [1:90] 13 12 12 11 12 10 16 6 9 13 ...
-##  $ posttrial_STAI: num [1:90] 60 59 55 55 61 63 61 49 53 64 ...
-##  - attr(*, &quot;spec&quot;)=
-##   .. cols(
-##   ..   patientID = col_double(),
-##   ..   gender = col_character(),
-##   ..   pretrial_GAD = col_double(),
-##   ..   pretrial_STAI = col_double(),
-##   ..   posttrial_GAD = col_double(),
-##   ..   posttrial_STAI = col_double()
-##   .. )
-##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
-<pre class="r"><code>str(experimental_group) </code></pre>
-<pre><code>## spc_tbl_ [90 × 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
-##  $ patientID     : num [1:90] 1 2 3 4 5 6 7 8 9 10 ...
-##  $ gender        : chr [1:90] &quot;male&quot; &quot;male&quot; &quot;female&quot; &quot;male&quot; ...
-##  $ pretrial_GAD  : num [1:90] 16 18 18 19 14 14 14 14 14 16 ...
-##  $ pretrial_STAI : num [1:90] 64 65 68 69 58 55 52 58 57 60 ...
-##  $ posttrial_GAD : num [1:90] 12 16 16 16 9 13 12 12 10 15 ...
-##  $ posttrial_STAI: num [1:90] 56 63 64 61 59 51 48 56 55 52 ...
-##  - attr(*, &quot;spec&quot;)=
-##   .. cols(
-##   ..   patientID = col_double(),
-##   ..   gender = col_character(),
-##   ..   pretrial_GAD = col_double(),
-##   ..   pretrial_STAI = col_double(),
-##   ..   posttrial_GAD = col_double(),
-##   ..   posttrial_STAI = col_double()
-##   .. )
-##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
+<p>During the data cleanup stage we check for any missing values and
+found 0 missing values in the control group and 0 missing values in the
+experimental group meaning no participants need to be thrown out for
+lack of data.</p>
+<p>Upon inspecting data types by viewing the structure of the data, all
+data types match what they should:</p>
+<ul>
+<li></li>
+</ul>
 <!-- This is what a comment looks like-->
 <div id="table-of-contents" class="section level3">
 <h3>Table of Contents</h3>
