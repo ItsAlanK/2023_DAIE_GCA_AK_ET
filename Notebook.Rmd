@@ -1,5 +1,5 @@
 ---
-title: "2023_DAIE_GCA_AK_ET"
+title: "2023 DAIE GCA - Alan Kinsella & Erik Trujillo"
 output: html_notebook
 ---
 ```{r include=FALSE}
@@ -8,8 +8,20 @@ if(!require("knitr"))
 library(knitr)
 ```
 
+### Table of Contents
+
+1. [Abstract](#abstract)
+2. [Introduction](#introduction)
+3. [Method](#method)
+4. [Results](#results)
+5. [Discussion](#discussion)
+6. [References](#references)
+
+
+```{r echo=FALSE}
 print(RESULTS_CONTROL)
+```
+
+```{r echo=FALSE}
 print(RESULTS_EXPERIMENTAL)
-
-
-
+```
