@@ -33,15 +33,18 @@ experimental_group <- read_csv("GROUP_12_2023_GCA_RESULTS_EXPERIMENTAL.csv")
 ```
 
 # Initial Inspection
+Initial inspection shows the same data types on both datasets. Patients are categorized by gender, and there are numeric scores for Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory (STAI). We have results both for pretrial testing and post trial testing. 
 ```{r} 
 # Display the first few rows of the datasets
-head(control_group)
-head(experimental_group)
+ head(control_group)
+ head(experimental_group)
+```
 
-
+The summary is showing some insight on how the data is distributed, there are also some outliers within minimum values in scores that might need to be looked at during our cleaning process. 
+```{r} 
 # Summary of the datasets 
-summary(control_group)
-summary(experimental_group)
+ summary(control_group)
+ summary(experimental_group)
 ```
 
 # Data Cleanup

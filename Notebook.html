@@ -387,7 +387,7 @@ knitr::opts_chunk$set(echo = TRUE)</code></pre>
 <div id="initial-inspection" class="section level1">
 <h1>Initial Inspection</h1>
 <pre class="r"><code># Display the first few rows of the datasets
-head(control_group)</code></pre>
+ head(control_group)</code></pre>
 <pre><code>## # A tibble: 6 × 6
 ##   patientID gender pretrial_GAD pretrial_STAI posttrial_GAD posttrial_STAI
 ##       &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
@@ -397,7 +397,7 @@ head(control_group)</code></pre>
 ## 4         4 male              9            51            11             55
 ## 5         5 male             15            64            12             61
 ## 6         6 female           13            58            10             63</code></pre>
-<pre class="r"><code>head(experimental_group)</code></pre>
+<pre class="r"><code> head(experimental_group)</code></pre>
 <pre><code>## # A tibble: 6 × 6
 ##   patientID gender pretrial_GAD pretrial_STAI posttrial_GAD posttrial_STAI
 ##       &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
@@ -408,7 +408,7 @@ head(control_group)</code></pre>
 ## 5         5 male             14            58             9             59
 ## 6         6 female           14            55            13             51</code></pre>
 <pre class="r"><code># Summary of the datasets 
-summary(control_group)</code></pre>
+ summary(control_group)</code></pre>
 <pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI  
 ##  Min.   : 1.00   Length:90          Min.   : 8.00   Min.   :49.00  
 ##  1st Qu.:23.25   Class :character   1st Qu.:12.00   1st Qu.:57.00  
@@ -423,7 +423,7 @@ summary(control_group)</code></pre>
 ##  Mean   :13.64   Mean   : 60.24  
 ##  3rd Qu.:16.00   3rd Qu.: 66.00  
 ##  Max.   :21.00   Max.   :111.00</code></pre>
-<pre class="r"><code>summary(experimental_group)</code></pre>
+<pre class="r"><code> summary(experimental_group)</code></pre>
 <pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI   
 ##  Min.   : 1.00   Length:90          Min.   :12.00   Min.   :-59.00  
 ##  1st Qu.:23.25   Class :character   1st Qu.:15.00   1st Qu.: 57.00  
