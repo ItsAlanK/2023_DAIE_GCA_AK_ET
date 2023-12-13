@@ -438,6 +438,51 @@ summary(control_group)</code></pre>
 ##  Mean   :13.9   Mean   :57.82  
 ##  3rd Qu.:16.0   3rd Qu.:63.00  
 ##  Max.   :19.0   Max.   :93.00</code></pre>
+</div>
+<div id="data-cleanup" class="section level1">
+<h1>Data Cleanup</h1>
+<pre class="r"><code># Check for missing values
+sum(is.na(control_group)) </code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>sum(is.na(experimental_group)) </code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code># Verifying data types 
+str(control_group) </code></pre>
+<pre><code>## spc_tbl_ [90 × 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ patientID     : num [1:90] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ gender        : chr [1:90] &quot;male&quot; &quot;male&quot; &quot;male&quot; &quot;male&quot; ...
+##  $ pretrial_GAD  : num [1:90] 15 11 11 9 15 13 15 9 11 14 ...
+##  $ pretrial_STAI : num [1:90] 64 54 53 51 64 58 64 52 54 58 ...
+##  $ posttrial_GAD : num [1:90] 13 12 12 11 12 10 16 6 9 13 ...
+##  $ posttrial_STAI: num [1:90] 60 59 55 55 61 63 61 49 53 64 ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   patientID = col_double(),
+##   ..   gender = col_character(),
+##   ..   pretrial_GAD = col_double(),
+##   ..   pretrial_STAI = col_double(),
+##   ..   posttrial_GAD = col_double(),
+##   ..   posttrial_STAI = col_double()
+##   .. )
+##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
+<pre class="r"><code>str(experimental_group) </code></pre>
+<pre><code>## spc_tbl_ [90 × 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+##  $ patientID     : num [1:90] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ gender        : chr [1:90] &quot;male&quot; &quot;male&quot; &quot;female&quot; &quot;male&quot; ...
+##  $ pretrial_GAD  : num [1:90] 16 18 18 19 14 14 14 14 14 16 ...
+##  $ pretrial_STAI : num [1:90] 64 65 68 69 58 55 52 58 57 60 ...
+##  $ posttrial_GAD : num [1:90] 12 16 16 16 9 13 12 12 10 15 ...
+##  $ posttrial_STAI: num [1:90] 56 63 64 61 59 51 48 56 55 52 ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   patientID = col_double(),
+##   ..   gender = col_character(),
+##   ..   pretrial_GAD = col_double(),
+##   ..   pretrial_STAI = col_double(),
+##   ..   posttrial_GAD = col_double(),
+##   ..   posttrial_STAI = col_double()
+##   .. )
+##  - attr(*, &quot;problems&quot;)=&lt;externalptr&gt;</code></pre>
 <!-- This is what a comment looks like-->
 <div id="table-of-contents" class="section level3">
 <h3>Table of Contents</h3>
@@ -455,34 +500,6 @@ summary(control_group)</code></pre>
 </div>
 <div id="introduction" class="section level3">
 <h3>Introduction <a name="introduction"></a></h3>
-<pre><code>## # A tibble: 90 × 6
-##    patientID gender pretrial_GAD pretrial_STAI posttrial_GAD posttrial_STAI
-##        &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
-##  1         1 male             15            64            13             60
-##  2         2 male             11            54            12             59
-##  3         3 male             11            53            12             55
-##  4         4 male              9            51            11             55
-##  5         5 male             15            64            12             61
-##  6         6 female           13            58            10             63
-##  7         7 male             15            64            16             61
-##  8         8 male              9            52             6             49
-##  9         9 male             11            54             9             53
-## 10        10 male             14            58            13             64
-## # ℹ 80 more rows</code></pre>
-<pre><code>## # A tibble: 90 × 6
-##    patientID gender pretrial_GAD pretrial_STAI posttrial_GAD posttrial_STAI
-##        &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
-##  1         1 male             16            64            12             56
-##  2         2 male             18            65            16             63
-##  3         3 female           18            68            16             64
-##  4         4 male             19            69            16             61
-##  5         5 male             14            58             9             59
-##  6         6 female           14            55            13             51
-##  7         7 female           14            52            12             48
-##  8         8 male             14            58            12             56
-##  9         9 male             14            57            10             55
-## 10        10 female           16            60            15             52
-## # ℹ 80 more rows</code></pre>
 </div>
 <div id="method" class="section level3">
 <h3>Method <a name="method"></a></h3>

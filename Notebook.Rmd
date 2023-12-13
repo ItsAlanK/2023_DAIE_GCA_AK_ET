@@ -44,6 +44,19 @@ summary(control_group)
 summary(experimental_group)
 ```
 
+# Data Cleanup
+```{r}
+# Check for missing values
+sum(is.na(control_group)) 
+sum(is.na(experimental_group)) 
+
+# Verifying data types 
+str(control_group) 
+str(experimental_group) 
+
+```
+
+
 <!-- This is what a comment looks like-->
 ### Table of Contents
 
@@ -60,13 +73,7 @@ summary(experimental_group)
 
 
 ### Introduction <a name="introduction"></a>
-```{r echo=FALSE}
-print(control_group)
-```
 
-```{r echo=FALSE}
-print(experimental_group)
-```
 
 
 
