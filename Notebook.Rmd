@@ -1,7 +1,10 @@
 ---
-title: "2023 DAIE GCA - Alan Kinsella & Erik Trujillo"
-output: html_notebook
+title: "Virtual Reality Interventions: Evaluating Efficacy in the Treatment of GAD"
+author: "Alan Kinsela, Erik Trujillo"
+date: "13/02/2023"
+output: html_document
 ---
+
 ```{r include=FALSE}
 if(!require("knitr"))
   install.packages("knitr")
