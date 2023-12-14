@@ -48,10 +48,17 @@ experimental_group <- read_csv("GROUP_12_2023_GCA_RESULTS_EXPERIMENTAL.csv")
 
 ### Initial Inspection <a name="inspection"></a>
 Initial inspection shows the same data types on both datasets. Patients are categorized by gender, and there are numeric scores for Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory (STAI). We have results both for pretrial testing and post trial testing. 
-```{r} 
-# Display the first few rows of the datasets
- head(control_group)
- head(experimental_group)
+```{r echo=FALSE} 
+# Display the first few rows of the datasets (Removes 3rd row which just shows data types)
+# Ref for how to remove data types: https://stackoverflow.com/questions/64734495/suppressing-the-column-classes-for-tibbles
+```
+#### Control Group
+```{r echo=FALSE} 
+cat(format(head(control_group))[-3L], sep = "\n")
+```
+#### Experimental Group
+```{r echo=FALSE} 
+cat(format(head(experimental_group))[-3L], sep = "\n")
 ```
 
 The summary is showing some insight on how the data is distributed, there are also some outliers visible within the minimum values that might need to be looked at during our cleaning process. We need to first understand if negative values are possible in this type of results.

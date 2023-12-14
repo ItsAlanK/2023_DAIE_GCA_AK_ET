@@ -407,21 +407,21 @@ Patients are categorized by gender, and there are numeric scores for
 Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory
 (STAI). We have results both for pretrial testing and post trial
 testing.</p>
-<pre class="r"><code># Display the first few rows of the datasets
- head(control_group)</code></pre>
+<div id="control-group" class="section level4">
+<h4>Control Group</h4>
 <pre><code>## # A tibble: 6 × 6
 ##   patientID gender pretrial_GAD pretrial_STAI posttrial_GAD posttrial_STAI
-##       &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
 ## 1         1 male             15            64            13             60
 ## 2         2 male             11            54            12             59
 ## 3         3 male             11            53            12             55
 ## 4         4 male              9            51            11             55
 ## 5         5 male             15            64            12             61
 ## 6         6 female           13            58            10             63</code></pre>
-<pre class="r"><code> head(experimental_group)</code></pre>
+</div>
+<div id="experimental-group" class="section level4">
+<h4>Experimental Group</h4>
 <pre><code>## # A tibble: 6 × 6
 ##   patientID gender pretrial_GAD pretrial_STAI posttrial_GAD posttrial_STAI
-##       &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
 ## 1         1 male             16            64            12             56
 ## 2         2 male             18            65            16             63
 ## 3         3 female           18            68            16             64
@@ -463,6 +463,7 @@ understand if negative values are possible in this type of results.</p>
 ##  Mean   :13.9   Mean   :57.82  
 ##  3rd Qu.:16.0   3rd Qu.:63.00  
 ##  Max.   :19.0   Max.   :93.00</code></pre>
+</div>
 </div>
 <div id="data-cleanup" class="section level3">
 <h3>Data Cleanup <a name="cleanup"></a></h3>
