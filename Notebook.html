@@ -360,45 +360,47 @@ Efficacy in the Treatment of GAD</h1>
 <!-- This is what a comment looks like-->
 <div id="table-of-contents" class="section level3">
 <h3>Table of Contents</h3>
+<!-- 1. [Setup](#setup)
+2. [Data Loading](#data-load) -->
 <ol style="list-style-type: decimal">
-<li><a href="#setup">Setup</a></li>
-<li><a href="#data-load">Data Loading</a></li>
-<li><a href="#inspection">Initial Inspection</a></li>
-<li><a href="#cleanup">Data Cleanup</a></li>
 <li><a href="#abstract">Abstract</a></li>
 <li><a href="#introduction">Introduction</a></li>
+<li><a href="#inspection">Initial Inspection</a></li>
+<li><a href="#cleanup">Data Cleanup</a></li>
 <li><a href="#method">Method</a></li>
 <li><a href="#results">Results</a></li>
 <li><a href="#discussion">Discussion</a></li>
 <li><a href="#references">References</a></li>
 </ol>
+<!-- ### Setup <a name="setup"></a> -->
+<!-- ### Data Loading <a name="data-load"></a> -->
+<!-- Loading our Datasets into R Studio -->
 </div>
-<div id="setup" class="section level3">
-<h3>Setup <a name="setup"></a></h3>
-<pre class="r"><code>#Setting this up to define all chunks to show both code and output: 
-knitr::opts_chunk$set(echo = TRUE)</code></pre>
+<div id="abstract" class="section level3">
+<h3>Abstract <a name="abstract"></a></h3>
+<p>As of 2019, approximately 301 million people globally suffer from
+anxiety disorders, characterized by persistent feelings of anxiety and
+fear. Virtual Reality (VR) has emerged as a promising therapeutic tool,
+offering immersive exposure experiences for controlled treatment.
+Studies demonstrate VR’s effectiveness in reducing symptoms of
+post-traumatic stress disorder and acrophobia, indicating its
+transformative potential in anxiety disorder treatments.
+Non-pharmacological therapies, notably Cognitive Behavioral Therapy, are
+commonly used for Generalized Anxiety Disorder (GAD), employing
+approaches like Imaginal Exposure Therapy and Stress Inoculation
+Training. Severity assessment often involves self-report mechanisms such
+as the State-Trait Anxiety Inventory and Generalized Anxiety Disorder
+7-item scale, both scaled from 0 to 10, contributing to a nuanced
+understanding of anxiety disorders and guiding tailored therapeutic
+interventions.</p>
+<p>This study will look at the results of an experiment comparing GAD
+and STAI scores of patients treated using traditional CBT (Control
+Group) and VR Therapy (Experimental Group) to identify the degree to
+which VR therapy has an effect compartive to proven therapy
+techniques.</p>
 </div>
-<div id="data-loading" class="section level3">
-<h3>Data Loading <a name="data-load"></a></h3>
-<p>Loading our Datasets into R Studio</p>
-<pre class="r"><code>control_group &lt;- read_csv(&quot;GROUP_12_2023_GCA_RESULTS_CONTROL.csv&quot;)</code></pre>
-<pre><code>## Rows: 90 Columns: 6
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (1): gender
-## dbl (5): patientID, pretrial_GAD, pretrial_STAI, posttrial_GAD, posttrial_STAI
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<pre class="r"><code>experimental_group &lt;- read_csv(&quot;GROUP_12_2023_GCA_RESULTS_EXPERIMENTAL.csv&quot;)</code></pre>
-<pre><code>## Rows: 90 Columns: 6
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (1): gender
-## dbl (5): patientID, pretrial_GAD, pretrial_STAI, posttrial_GAD, posttrial_STAI
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div id="introduction" class="section level3">
+<h3>Introduction <a name="introduction"></a></h3>
 </div>
 <div id="initial-inspection" class="section level3">
 <h3>Initial Inspection <a name="inspection"></a></h3>
@@ -540,12 +542,6 @@ treating Generalized Anxiety Disorder (GAD).</p></li>
 </div>
 <div id="data-deep-dive" class="section level3">
 <h3>Data deep dive</h3>
-</div>
-<div id="abstract" class="section level3">
-<h3>Abstract <a name="abstract"></a></h3>
-</div>
-<div id="introduction" class="section level3">
-<h3>Introduction <a name="introduction"></a></h3>
 </div>
 <div id="method" class="section level3">
 <h3>Method <a name="method"></a></h3>
