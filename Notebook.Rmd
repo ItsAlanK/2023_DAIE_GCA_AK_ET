@@ -195,8 +195,17 @@ ggplot(combined_groups) +
   geom_histogram(aes(x = pretrial_GAD, fill = "Pretrial"), bins = 30, alpha = 0.6) +
   geom_histogram(aes(x = posttrial_GAD, fill = "Posttrial"), bins = 30, alpha = 0.6) +
   facet_wrap(~ group) +
-  labs(title = "Histogram of GAD Scores", x = "GAD Score", y = "Count") +
+  labs(title = "Histogram of GAD Scores", x = "GAD Score", y = "Score") +
   scale_fill_manual(values = c("Pretrial" = "blue", "Posttrial" = "red"))
+
+# Density plot for GAD scores
+ggplot(combined_groups, aes(x = pretrial_GAD, fill = "Pretrial")) +
+  geom_density(alpha = 0.5) +
+  geom_density(aes(x = posttrial_GAD, fill = "Posttrial"), alpha = 0.5) +
+  scale_fill_manual(values = c("Pretrial" = "blue", "Posttrial" = "red")) +
+  labs(title = "Density Plot of GAD Scores", x = "GAD Score", y = "Density") +
+  facet_wrap(~ group)
+
 
 ```
 
@@ -228,12 +237,41 @@ ggplot(combined_groups) +
   geom_histogram(aes(x = pretrial_STAI, fill = "Pretrial"), bins = 30, alpha = 0.6) +
   geom_histogram(aes(x = posttrial_STAI, fill = "Posttrial"), bins = 30, alpha = 0.6) +
   facet_wrap(~ group) +
-  labs(title = "Histogram of STAI Scores", x = "STAI Score", y = "Count") +
+  labs(title = "Histogram of STAI Scores", x = "STAI Score", y = "Score") +
   scale_fill_manual(values = c("Pretrial" = "green", "Posttrial" = "orange"))
+
+
+# Density plot for STAI scores
+ggplot(combined_groups, aes(x = pretrial_STAI, fill = "Pretrial")) +
+  geom_density(alpha = 0.5) +
+  geom_density(aes(x = posttrial_STAI, fill = "Posttrial"), alpha = 0.5) +
+  scale_fill_manual(values = c("Pretrial" = "green", "Posttrial" = "orange")) +
+  labs(title = "Density Plot of STAI Scores", x = "STAI Score", y = "Density") +
+  facet_wrap(~ group)
 
 
 ```
 
+```{r}
+# QQ plot for Control Group Pretrial GAD
+qqnorm(control_group_cleaned$pretrial_GAD, main = "QQ Plot - Control Group Pretrial GAD")
+qqline(control_group_cleaned$pretrial_GAD, col = "red")
+
+# QQ plot for Control Group Posttrial GAD
+qqnorm(control_group_cleaned$posttrial_GAD, main = "QQ Plot - Control Group Posttrial GAD")
+qqline(control_group_cleaned$posttrial_GAD, col = "red")
+
+# QQ plot for Experimental Group Pretrial GAD
+qqnorm(experimental_group_cleaned$pretrial_GAD, main = "QQ Plot - Experimental Group Pretrial GAD")
+qqline(experimental_group_cleaned$pretrial_GAD, col = "red")
+
+# QQ plot for Experimental Group Posttrial GAD
+qqnorm(experimental_group_cleaned$posttrial_GAD, main = "QQ Plot - Experimental Group Posttrial GAD")
+qqline(experimental_group_cleaned$posttrial_GAD, col = "red")
+
+
+
+```
 
 
 
