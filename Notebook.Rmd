@@ -49,13 +49,13 @@ experimental_group <- read_csv("GROUP_12_2023_GCA_RESULTS_EXPERIMENTAL.csv")
 
 ### Abstract <a name="abstract"></a>
 
-As of 2019, approximately 301 million people globally suffer from anxiety disorders, characterized by persistent feelings of anxiety and fear. Virtual Reality (VR) has emerged as a promising therapeutic tool, offering immersive exposure experiences for controlled treatment. Studies demonstrate VR's effectiveness in reducing symptoms of post-traumatic stress disorder and acrophobia, indicating its transformative potential in anxiety disorder treatments. Non-pharmacological therapies, notably Cognitive Behavioral Therapy, are commonly used for Generalized Anxiety Disorder (GAD), employing approaches like Imaginal Exposure Therapy and Stress Inoculation Training. Severity assessment often involves self-report mechanisms such as the State-Trait Anxiety Inventory and Generalized Anxiety Disorder 7-item scale, both scaled from 0 to 10, contributing to a nuanced understanding of anxiety disorders and guiding tailored therapeutic interventions.
 
-This study will look at the results of an experiment comparing GAD and STAI scores of patients treated using traditional CBT (Control Group) and VR Therapy (Experimental Group) to identify the degree to which VR therapy has an effect compartive to proven therapy techniques.
 
 
 ### Introduction <a name="introduction"></a>
+As of 2019, approximately 301 million people globally suffer from anxiety disorders, characterized by persistent feelings of anxiety and fear. Virtual Reality (VR) has emerged as a promising therapeutic tool, offering immersive exposure experiences for controlled treatment. Studies demonstrate VR's effectiveness in reducing symptoms of post-traumatic stress disorder and acrophobia, indicating its transformative potential in anxiety disorder treatments. Non-pharmacological therapies, notably Cognitive Behavioral Therapy, are commonly used for Generalized Anxiety Disorder (GAD), employing approaches like Imaginal Exposure Therapy and Stress Inoculation Training. Severity assessment often involves self-report mechanisms such as the State-Trait Anxiety Inventory and Generalized Anxiety Disorder 7-item scale, both scaled from 0 to 10, contributing to a nuanced understanding of anxiety disorders and guiding tailored therapeutic interventions.
 
+This study will look at the results of an experiment comparing GAD and STAI scores of patients treated using traditional CBT (Control Group) and VR Therapy (Experimental Group) to identify the degree to which VR therapy has an effect compartive to proven therapy techniques.
 
 
 ### Initial Inspection <a name="inspection"></a>
