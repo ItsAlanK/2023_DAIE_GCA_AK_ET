@@ -132,6 +132,12 @@ summary(control_group_cleaned)
 summary(experimental_group_cleaned) 
 ```
 
+```{r include=FALSE}
+count_control_cleaned <- count(control_group_cleaned)
+count_experimental_cleaned <- count(experimental_group_cleaned)
+```
+
+After cleaning, the count of results remained even with `r count_control_cleaned` results for both control and experimental group so further sampling is not required.
 
 ### Hypothesis Formulation
 
