@@ -62,9 +62,14 @@ cat(format(head(experimental_group))[-3L], sep = "\n")
 ```
 
 The summary is showing some insight on how the data is distributed, there are also some outliers visible within the minimum values that might need to be looked at during our cleaning process. We need to first understand if negative values are possible in this type of results.
-```{r} 
-# Summary of the datasets 
+
+<!-- Summary of the datasets -->
+#### Summary of Control Group
+```{r echo=FALSE} 
  summary(control_group)
+```
+#### Summary of Experimental Group
+```{r echo=FALSE} 
  summary(experimental_group)
 ```
 
@@ -88,16 +93,22 @@ Upon inspecting data types by viewing the structure of the data, all data types 
 - Gender are all character strings
 
 
-### Filtering values outside of test boundaries 
+#### Filtering values outside of test boundaries 
 ```{r echo=FALSE}
 control_group_cleaned <- control_group %>% filter(pretrial_GAD >= 0, pretrial_STAI >= 20, posttrial_GAD >= 0, posttrial_STAI >= 20, pretrial_GAD <= 21, pretrial_STAI <= 80, posttrial_GAD <= 21, posttrial_STAI <= 80)
 ```
 
 ``` {r echo=FALSE}
 experimental_group_cleaned <- experimental_group %>% filter(pretrial_GAD >= 0, pretrial_STAI >= 0, posttrial_GAD >= 0, posttrial_STAI >= 0, , pretrial_GAD <= 21, pretrial_STAI <= 80, posttrial_GAD <= 21, posttrial_STAI <= 80) 
+```
+#### Summary of Control Group After Cleanup
 
+``` {r echo=FALSE}
 summary(control_group_cleaned) 
+```
+#### Summary of Experimental Group After Cleanup
 
+``` {r echo=FALSE}
 summary(experimental_group_cleaned) 
 ```
 

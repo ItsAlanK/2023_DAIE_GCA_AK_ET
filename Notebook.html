@@ -432,8 +432,10 @@ testing.</p>
 there are also some outliers visible within the minimum values that
 might need to be looked at during our cleaning process. We need to first
 understand if negative values are possible in this type of results.</p>
-<pre class="r"><code># Summary of the datasets 
- summary(control_group)</code></pre>
+<!-- Summary of the datasets -->
+</div>
+<div id="summary-of-control-group" class="section level4">
+<h4>Summary of Control Group</h4>
 <pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI  
 ##  Min.   : 1.00   Length:90          Min.   : 8.00   Min.   :49.00  
 ##  1st Qu.:23.25   Class :character   1st Qu.:12.00   1st Qu.:57.00  
@@ -448,7 +450,9 @@ understand if negative values are possible in this type of results.</p>
 ##  Mean   :13.64   Mean   : 60.24  
 ##  3rd Qu.:16.00   3rd Qu.: 66.00  
 ##  Max.   :21.00   Max.   :111.00</code></pre>
-<pre class="r"><code> summary(experimental_group)</code></pre>
+</div>
+<div id="summary-of-experimental-group" class="section level4">
+<h4>Summary of Experimental Group</h4>
 <pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI   
 ##  Min.   : 1.00   Length:90          Min.   :12.00   Min.   :-59.00  
 ##  1st Qu.:23.25   Class :character   1st Qu.:15.00   1st Qu.: 57.00  
@@ -477,9 +481,11 @@ data types match what they should:</p>
 <li>Patient ID, and test results are all numbers</li>
 <li>Gender are all character strings</li>
 </ul>
+<div id="filtering-values-outside-of-test-boundaries" class="section level4">
+<h4>Filtering values outside of test boundaries</h4>
 </div>
-<div id="filtering-values-outside-of-test-boundaries" class="section level3">
-<h3>Filtering values outside of test boundaries</h3>
+<div id="summary-of-control-group-after-cleanup" class="section level4">
+<h4>Summary of Control Group After Cleanup</h4>
 <pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI  
 ##  Min.   : 1.00   Length:88          Min.   : 8.00   Min.   :49.00  
 ##  1st Qu.:22.75   Class :character   1st Qu.:12.00   1st Qu.:57.00  
@@ -494,6 +500,9 @@ data types match what they should:</p>
 ##  Mean   :13.59   Mean   :61.06  
 ##  3rd Qu.:16.00   3rd Qu.:66.00  
 ##  Max.   :21.00   Max.   :75.00</code></pre>
+</div>
+<div id="summary-of-experimental-group-after-cleanup" class="section level4">
+<h4>Summary of Experimental Group After Cleanup</h4>
 <pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI  
 ##  Min.   : 1.00   Length:88          Min.   :12.00   Min.   :49.00  
 ##  1st Qu.:23.75   Class :character   1st Qu.:15.00   1st Qu.:57.75  
@@ -514,6 +523,7 @@ upper limit of 21, while STAI has a lower and upper limit of 20 and 80
 respectively. When compared to earlier data chunks we can see that no
 values min or max for any test lie outside of expected results now and
 we have no null or incorrect types values either. See <a href="#references">references for sources on test boundaries</a></p>
+</div>
 </div>
 <div id="hypothesis-formulation" class="section level3">
 <h3>Hypothesis Formulation</h3>
