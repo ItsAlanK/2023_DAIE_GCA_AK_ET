@@ -162,7 +162,7 @@ After our initial inspection of the data, based on the  difference in means from
 
 - **Null Hypothesis (H0):** VR-based therapy does not have a significant difference in effectiveness from traditional CBT therapy in treating Generalized Anxiety Disorder (GAD).
 
-- **Alternative Hypothesis (H1):** Traditional CBT therapy is significantly more effective than VR-based therapy in treating Generalized Anxiety Disorder (GAD).
+- **Alternative Hypothesis (H1):** VR-based therapy is significantly more effective than traditional CBT therapy to threat Generalized Anxiety Disorder (GAD).
 
 ### Data deep dive 
 
@@ -311,6 +311,7 @@ print_ad_results(control_posttrial_STAI_ad)
 
 ```
 
+<<<<<<< Updated upstream
 ##### Shapiro-Wilk Test
 ``` {r echo=FALSE}
 control_pretrial_GAD_sw <- shapiro.test(control_group_cleaned$pretrial_GAD)
@@ -339,8 +340,47 @@ print_sw_results(control_posttrial_STAI_sw)
 ```
 
 ### Method <a name="method"></a>
+=======
+### Hypothesis testings
+
+Now that we have tested for normality, we can assume that all datasets are normally distributed, this entails that we can now proceed with parametric tests. Since the dataset provided two main groups of comparison; pre-test results and post-test results, we have opted to continue with a two-sample T-test that allows the comparison of the means of two groups. It is important to note that the two groups are also independent, which is an important requirement of the chosen test. 
+
+In order to test our hypothesis, we need to calculate the difference between the pretrial results and posttrial results for both control and experimental groups. After, that we can use the mean in both to run a two sample t-test and find a p-value that can test our hypothesis.
+
+```{r}
+
+# Calculate change in GAD scores
+control_group_results <- control_group_cleaned$posttrial_GAD - control_group_cleaned$pretrial_GAD
+experimental_group_results <- experimental_group_cleaned$posttrial_GAD - experimental_group_cleaned$pretrial_GAD
+
+# Independent t-test for comparing changes between groups
+t.test(control_group_results, experimental_group_results)
+
+# Calculate change in STAI scores
+control_group_results_STAI <- control_group_cleaned$posttrial_STAI - control_group_cleaned$pretrial_STAI
+experimental_group_results_STAI <- experimental_group_cleaned$posttrial_STAI - experimental_group_cleaned$pretrial_STAI
+
+# Independent t-test for comparing changes between groups
+t.test(control_group_results_STAI, experimental_group_results_STAI)
+>>>>>>> Stashed changes
 
 
+```
+
+Results for GAD Scores:
+
+For GAD scores, the p-value is approximately 0.0000000004143. This extremely small p-value suggests that the observed difference in mean changes between the control and experimental groups is highly unlikely to have occurred by chance.
+
+The negative mean changes in both groups suggest that GAD scores decreased in both groups after the treatment, indicating improvement. The more negative mean change in the experimental group (VR-based therapy) compared to the control group (traditional CBT) suggests a greater reduction in GAD scores, which implies that the VR-based therapy was more effective in reducing GAD scores than the traditional CBT.
+
+In summary, based on these results, we can conclude that VR-based therapy led to a significantly greater reduction in GAD scores compared to traditional CBT in your study.
+
+Results for STAI Scores
+
+The negative mean change in the experimental group suggests again a reduction in STAI scores, indicating a decrease in anxiety levels after treatment. 
+The positive mean change in the control group, suggests either a slight increase in STAI scores or a less substantial decrease compared to the experimental group.
+
+Given the very low p-value, you can reject the null hypothesis that there is no difference in STAI score changes between the groups. As with previous results, the results strongly suggest that VR-based therapy was more effective in reducing anxiety levels than traditional CBT in your study.
 
 
 ### Results <a name="results"></a>
