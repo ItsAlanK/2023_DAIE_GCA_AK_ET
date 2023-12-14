@@ -101,7 +101,8 @@ expDataTypes <- str(experimental_group)
 
 ```
 
-During the data cleanup stage we check for any missing values and found `r cntlMissingCount` missing values in the control group and `r expMissingCount` missing values in the experimental group meaning no participants need to be thrown out for lack of data.
+
+During the data cleanup stage we checked for any missing values and found `r cntlMissingCount` missing values in the control group and `r expMissingCount` missing values in the experimental group meaning no participants need to be removed for lack of data.
 
 Upon inspecting data types by viewing the structure of the data, all data types match what they should:
 
@@ -120,7 +121,9 @@ control_group_cleaned <- control_group %>% filter(pretrial_GAD >= 0, pretrial_ST
 experimental_group_cleaned <- experimental_group %>% filter(pretrial_GAD >= 0, pretrial_STAI >= 0, posttrial_GAD >= 0, posttrial_STAI >= 0, , pretrial_GAD <= 21, pretrial_STAI <= 80, posttrial_GAD <= 21, posttrial_STAI <= 80) 
 ```
 
-Data has also been cleaned above to remove any test responses outside of the test boundaries. GAD test have a lower score limit of 0 and an upper limit of 21, while STAI has a lower and upper limit of 20 and 80 respectively. When compared to earlier data chunks we can see that no values min or max for any test lie outside of expected results now and we have no null or incorrect types values either. See [references for sources on test boundaries](#references)
+
+
+Data has also been cleaned above to remove any test responses outside of the test boundaries. GAD test have a lower score limit of 0 and an upper limit of 21, while STAI has a lower and upper limit of 20 and 80 respectively. When compared to earlier data chunks we can see that no values min or max for any test lie outside of expected results now and we have no invalid values either. See [references for sources on test boundaries](#references)
 
 #### Summary of Control Group After Cleanup
 ``` {r echo=FALSE}
@@ -141,9 +144,9 @@ After cleaning, the count of results remained even with `r count_control_cleaned
 
 ### Hypothesis Formulation
 
-After around initial inspection of the data, we have come to following hypothesis:
+After our initial inspection of the data, based on the  difference in means from the pretrial results and the post trial results, we have come to following hypothesis:
 
-- **Null Hypothesis (H0):** VR-based therapy does not have a significant difference in effectiveness from traditional CBT in treating Generalized Anxiety Disorder (GAD).
+- **Null Hypothesis (H0):** VR-based therapy does not have a significant difference in effectiveness from traditional CBT therapy in treating Generalized Anxiety Disorder (GAD).
 
 - **Alternative Hypothesis (H1):** Traditional CBT therapy is significantly more effective than VR-based therapy in treating Generalized Anxiety Disorder (GAD).
 
@@ -157,15 +160,45 @@ experimental_group_cleaned$group <- 'Experimental'
 # Combining the datasets, this will help us compare the data in different plots.
 combined_groups <- rbind(control_group_cleaned, experimental_group_cleaned)
 
-# Visualizing the GAD scores by group using a boxplot
+# Visualizing the pre-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = pretrial_GAD, fill = group)) +
     geom_boxplot() +
     labs(title = "Pre-Trial GAD Scores by Group", x = "Group", y = "Pre-Trial GAD Score")
 
-# Visualizing the GAD scores by group using a boxplot
+control_pretrial_GAD_mean <- mean(control_group_cleaned$pretrial_GAD)
+control_posttrial_GAD_mean <- mean(control_group_cleaned$posttrial_GAD)
+control_pretrial_GAD_mean
+control_posttrial_GAD_mean
+
+# Visualizing the post-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = posttrial_GAD, fill = group)) +
     geom_boxplot() +
     labs(title = "Post-Trial GAD Scores by Group", x = "Group", y = "Post-Trial GAD Score")
+
+experimental_pretrial_GAD_mean <- mean(experimental_group_cleaned$pretrial_GAD)
+experimental_posttrial_GAD_mean <- mean(experimental_group_cleaned$posttrial_GAD)
+experimental_pretrial_GAD_mean
+experimental_posttrial_GAD_mean
+
+# Visualizing the pre-trial STAI scores by group using a boxplot
+ggplot(combined_groups, aes(x = group, y = pretrial_STAI, fill = group)) +
+    geom_boxplot() +
+    labs(title = "Pre-Trial STAI Scores by Group", x = "Group", y = "Pre-Trial STAI Score")
+
+control_pretrial_STAI_mean <- mean(control_group_cleaned$pretrial_STAI)
+control_posttrial_STAI_mean <- mean(control_group_cleaned$posttrial_STAI)
+control_pretrial_STAI_mean
+control_posttrial_STAI_mean
+
+# Visualizing the post-trial STAI scores by group using a boxplot
+ggplot(combined_groups, aes(x = group, y = posttrial_STAI, fill = group)) +
+    geom_boxplot() +
+    labs(title = "Post-Trial STAI Scores by Group", x = "Group", y = "Post-Trial STAI Score")
+
+experimental_pretrial_STAI_mean <- mean(experimental_group_cleaned$pretrial_STAI)
+experimental_posttrial_STAI_mean <- mean(experimental_group_cleaned$posttrial_STAI)
+experimental_pretrial_STAI_mean
+experimental_posttrial_STAI_mean
 ```
 
 
