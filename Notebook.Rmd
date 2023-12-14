@@ -143,6 +143,24 @@ After around initial inspection of the data, we have come to following hypothesi
 
 ### Data deep dive 
 
+``` {r echo=TRUE}
+# Adding a 'group' column to each dataset, this is so we can combine them next and we can keep differentiating them. 
+control_group_cleaned$group <- 'Control'
+experimental_group_cleaned$group <- 'Experimental'
+
+# Combining the datasets, this will help us compare the data in different plots.
+combined_groups <- rbind(control_group_cleaned, experimental_group_cleaned)
+
+# Visualizing the GAD scores by group using a boxplot
+ggplot(combined_groups, aes(x = group, y = pretrial_GAD, fill = group)) +
+    geom_boxplot() +
+    labs(title = "Pre-Trial GAD Scores by Group", x = "Group", y = "Pre-Trial GAD Score")
+
+# Visualizing the GAD scores by group using a boxplot
+ggplot(combined_groups, aes(x = group, y = posttrial_GAD, fill = group)) +
+    geom_boxplot() +
+    labs(title = "Post-Trial GAD Scores by Group", x = "Group", y = "Post-Trial GAD Score")
+```
 
 
 
