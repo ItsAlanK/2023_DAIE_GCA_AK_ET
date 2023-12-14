@@ -429,8 +429,9 @@ testing.</p>
 ## 5         5 male             14            58             9             59
 ## 6         6 female           14            55            13             51</code></pre>
 <p>The summary is showing some insight on how the data is distributed,
-there are also some outliers within minimum values in scores that might
-need to be looked at during our cleaning process.</p>
+there are also some outliers visible within the minimum values that
+might need to be looked at during our cleaning process. We need to first
+understand if negative values are possible in this type of results.</p>
 <pre class="r"><code># Summary of the datasets 
  summary(control_group)</code></pre>
 <pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI  
@@ -509,9 +510,25 @@ data types match what they should:</p>
 <p>Data has also been cleaned above to remove any test responses outside
 of the test boundaries. GAD test have a lower score limit of 0 and an
 upper limit of 21, while STAI has a lower and upper limit of 20 and 80
-respectively. When compared to earlier data chats we can see that no
+respectively. When compared to earlier data chunks we can see that no
 values min or max for any test lie outside of expected results now and
 we have no null or incorrect types values either. See <a href="#references">references for sources on test boundaries</a></p>
+</div>
+<div id="hypothesis-formulation" class="section level3">
+<h3>Hypothesis Formulation</h3>
+<p>After around initial inspection of the data, we have come to
+following hypothesis:</p>
+<ul>
+<li><p><strong>Null Hypothesis (H0):</strong> VR-based therapy does not
+have a significant difference in effectiveness from traditional CBT in
+treating Generalized Anxiety Disorder (GAD).</p></li>
+<li><p><strong>Alternative Hypothesis (H1):</strong> Traditional CBT
+therapy is significantly more effective than VR-based therapy in
+treating Generalized Anxiety Disorder (GAD).</p></li>
+</ul>
+</div>
+<div id="data-deep-dive" class="section level3">
+<h3>Data deep dive</h3>
 </div>
 <div id="abstract" class="section level3">
 <h3>Abstract <a name="abstract"></a></h3>

@@ -54,7 +54,7 @@ Initial inspection shows the same data types on both datasets. Patients are cate
  head(experimental_group)
 ```
 
-The summary is showing some insight on how the data is distributed, there are also some outliers within minimum values in scores that might need to be looked at during our cleaning process. 
+The summary is showing some insight on how the data is distributed, there are also some outliers visible within the minimum values that might need to be looked at during our cleaning process. We need to first understand if negative values are possible in this type of results.
 ```{r} 
 # Summary of the datasets 
  summary(control_group)
@@ -94,15 +94,15 @@ summary(control_group_cleaned)
 summary(experimental_group_cleaned) 
 ```
 
-Data has also been cleaned above to remove any test responses outside of the test boundaries. GAD test have a lower score limit of 0 and an upper limit of 21, while STAI has a lower and upper limit of 20 and 80 respectively. When compared to earlier data chats we can see that no values min or max for any test lie outside of expected results now and we have no null or incorrect types values either. See [references for sources on test boundaries](#references)
+Data has also been cleaned above to remove any test responses outside of the test boundaries. GAD test have a lower score limit of 0 and an upper limit of 21, while STAI has a lower and upper limit of 20 and 80 respectively. When compared to earlier data chunks we can see that no values min or max for any test lie outside of expected results now and we have no null or incorrect types values either. See [references for sources on test boundaries](#references)
 
 ### Hypothesis Formulation
 
-After reviewing the data Superficially. We have come to following hypothesis:
+After around initial inspection of the data, we have come to following hypothesis:
 
-Null Hypothesis (H0): VR-based therapy does not have a significant difference in effectiveness from traditional CBT in treating Generalized Anxiety Disorder (GAD).
+- **Null Hypothesis (H0):** VR-based therapy does not have a significant difference in effectiveness from traditional CBT in treating Generalized Anxiety Disorder (GAD).
 
-Alternative Hypothesis (H1): Traditional CBT therapy is significantly more effective than VR-based therapy in treating Generalized Anxiety Disorder (GAD).
+- **Alternative Hypothesis (H1):** Traditional CBT therapy is significantly more effective than VR-based therapy in treating Generalized Anxiety Disorder (GAD).
 
 ### Data deep dive 
 
