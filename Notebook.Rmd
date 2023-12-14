@@ -29,6 +29,10 @@ library(knitr)
 # Load the packages, loading tidyverse for readr, dplyr, magrittr, and ggplot2
 if(!require("tidyverse"))
 library(tidyverse)
+
+if(!require("nortest"))
+  install.packages("nortest")
+library(nortest)
 ```
 
 
@@ -162,6 +166,8 @@ After our initial inspection of the data, based on the  difference in means from
 
 ### Data deep dive 
 
+
+#### Visual Inspection of Normality
 ``` {r echo=TRUE}
 # Adding a 'group' column to each dataset, this is so we can combine them next and we can keep differentiating them. 
 control_group_cleaned$group <- 'Control'
@@ -261,19 +267,50 @@ qqline(control_group_cleaned$pretrial_GAD, col = "red")
 qqnorm(control_group_cleaned$posttrial_GAD, main = "QQ Plot - Control Group Posttrial GAD")
 qqline(control_group_cleaned$posttrial_GAD, col = "red")
 
-# QQ plot for Experimental Group Pretrial GAD
-qqnorm(experimental_group_cleaned$pretrial_GAD, main = "QQ Plot - Experimental Group Pretrial GAD")
+# QQ plot for Experimental Group Pretrial STAI
+qqnorm(experimental_group_cleaned$pretrial_GAD, main = "QQ Plot - Experimental Group Pretrial STAI")
 qqline(experimental_group_cleaned$pretrial_GAD, col = "red")
 
-# QQ plot for Experimental Group Posttrial GAD
-qqnorm(experimental_group_cleaned$posttrial_GAD, main = "QQ Plot - Experimental Group Posttrial GAD")
+# QQ plot for Experimental Group Posttrial STAI
+qqnorm(experimental_group_cleaned$posttrial_GAD, main = "QQ Plot - Experimental Group Posttrial STAI")
 qqline(experimental_group_cleaned$posttrial_GAD, col = "red")
 
 
 
 ```
 
+#### Testing for Normality
+``` {r echo=FALSE}
 
+# Anderson-Darling Test, referenced from class example https://github.com/nmcguinness/2023_MSC_DataAnalytics_IntroToR/blob/main/Examples/9_TestingForNormality.R
+
+control_pretrial_GAD_ad <- ad.test(control_group_cleaned$pretrial_GAD)
+control_pretrial_GAD_ad
+control_posttrial_GAD_ad <- ad.test(control_group_cleaned$posttrial_GAD)
+control_posttrial_GAD_ad
+control_pretrial_STAI_ad <- ad.test(control_group_cleaned$pretrial_STAI)
+control_pretrial_STAI_ad
+control_posttrial_STAI_ad <- ad.test(control_group_cleaned$posttrial_STAI)
+control_posttrial_STAI_ad
+
+print(paste("A",control_pretrial_GAD_ad$method, "was conducted on the data."))
+
+print_ad_results <- function(tested_data) { # create a function with the name my_function
+  if(tested_data$p.value < 0.05)
+  {
+    print(paste("From the output obtained we can not assume normality as the p-value of", round(tested_data$p.value, 4), "is less than 0.05"))
+  } else #note in R we need to put the else as shown (i.e. immediately after the { bracket) and not on a new line (as we can in C, C++, C#)
+  { 
+    print(paste("From the output obtained we can assume normality as the p-value of", round(tested_data$p.value, 4), "is greater than 0.05"))
+  }
+}
+
+print_ad_results(control_pretrial_GAD_ad)
+print_ad_results(control_posttrial_GAD_ad)
+print_ad_results(control_pretrial_STAI_ad)
+print_ad_results(control_posttrial_STAI_ad)
+
+```
 
 ### Method <a name="method"></a>
 
