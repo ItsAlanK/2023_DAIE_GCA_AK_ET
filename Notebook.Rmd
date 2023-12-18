@@ -153,23 +153,27 @@ Post-cleanup, our datasets present a more accurate reflection of the experiment 
 
 ### Hypothesis Formulation
 
-After our initial inspection of the data, based on the  difference in means from the pretrial results and the post trial results, we have come to following hypothesis:
+After our initial inspection, more specifically after comparing the difference between means of pre-trial and post-trial scores for both GAD and STAI results, we have come to following hypotheses:
 
 - **Null Hypothesis (H0):** VR-based therapy does not have a significant difference in effectiveness from traditional CBT therapy in treating Generalized Anxiety Disorder (GAD).
 
 - **Alternative Hypothesis (H1):** VR-based therapy is significantly more effective than traditional CBT therapy to threat Generalized Anxiety Disorder (GAD).
 
+The validation of these hypotheses will be through a statistical analysis of GAD and STAI scores from both the control (CBT) and experimental (VR) groups.
+
 ### Data deep dive 
 
-
 #### Visual Inspection of Normality
-``` {r echo=TRUE}
+``` {r echo=FALSE}
 # Adding a 'group' column to each dataset, this is so we can combine them next and we can keep differentiating them. 
 control_group_cleaned$group <- 'Control'
 experimental_group_cleaned$group <- 'Experimental'
 
 # Combining the datasets, this will help us compare the data in different plots.
 combined_groups <- rbind(control_group_cleaned, experimental_group_cleaned)
+```
+
+```{r echo=FALSE}
 
 # Visualizing the pre-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = pretrial_GAD, fill = group)) +
@@ -180,7 +184,10 @@ control_pretrial_GAD_mean <- mean(control_group_cleaned$pretrial_GAD)
 control_posttrial_GAD_mean <- mean(control_group_cleaned$posttrial_GAD)
 control_pretrial_GAD_mean
 control_posttrial_GAD_mean
+```
 
+
+```{r echo=FALSE}
 # Visualizing the post-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = posttrial_GAD, fill = group)) +
     geom_boxplot() +
@@ -190,7 +197,9 @@ experimental_pretrial_GAD_mean <- mean(experimental_group_cleaned$pretrial_GAD)
 experimental_posttrial_GAD_mean <- mean(experimental_group_cleaned$posttrial_GAD)
 experimental_pretrial_GAD_mean
 experimental_posttrial_GAD_mean
+```
 
+```{r echo=FALSE}
 # Histogram for GAD scores
 ggplot(combined_groups) +
   geom_histogram(aes(x = pretrial_GAD, fill = "Pretrial"), bins = 30, alpha = 0.6) +
@@ -198,7 +207,9 @@ ggplot(combined_groups) +
   facet_wrap(~ group) +
   labs(title = "Histogram of GAD Scores", x = "GAD Score", y = "Score") +
   scale_fill_manual(values = c("Pretrial" = "blue", "Posttrial" = "red"))
+```
 
+```{r echo=FALSE}
 # Density plot for GAD scores
 ggplot(combined_groups, aes(x = pretrial_GAD, fill = "Pretrial")) +
   geom_density(alpha = 0.5) +
@@ -206,11 +217,9 @@ ggplot(combined_groups, aes(x = pretrial_GAD, fill = "Pretrial")) +
   scale_fill_manual(values = c("Pretrial" = "blue", "Posttrial" = "red")) +
   labs(title = "Density Plot of GAD Scores", x = "GAD Score", y = "Density") +
   facet_wrap(~ group)
-
-
 ```
 
-``` {r echo=TRUE}
+``` {r echo=FALSE}
 # Visualizing the pre-trial STAI scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = pretrial_STAI, fill = group)) +
     geom_boxplot() +
@@ -220,7 +229,9 @@ control_pretrial_STAI_mean <- mean(control_group_cleaned$pretrial_STAI)
 control_posttrial_STAI_mean <- mean(control_group_cleaned$posttrial_STAI)
 control_pretrial_STAI_mean
 control_posttrial_STAI_mean
+```
 
+``` {r echo=FALSE}
 # Visualizing the post-trial STAI scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = posttrial_STAI, fill = group)) +
     geom_boxplot() +
@@ -230,9 +241,9 @@ experimental_pretrial_STAI_mean <- mean(experimental_group_cleaned$pretrial_STAI
 experimental_posttrial_STAI_mean <- mean(experimental_group_cleaned$posttrial_STAI)
 experimental_pretrial_STAI_mean
 experimental_posttrial_STAI_mean
+```
 
-
-
+``` {r echo=FALSE}
 # Histogram for STAI scores
 ggplot(combined_groups) +
   geom_histogram(aes(x = pretrial_STAI, fill = "Pretrial"), bins = 30, alpha = 0.6) +
@@ -240,8 +251,9 @@ ggplot(combined_groups) +
   facet_wrap(~ group) +
   labs(title = "Histogram of STAI Scores", x = "STAI Score", y = "Score") +
   scale_fill_manual(values = c("Pretrial" = "green", "Posttrial" = "orange"))
+``` 
 
-
+``` {r echo=FALSE}
 # Density plot for STAI scores
 ggplot(combined_groups, aes(x = pretrial_STAI, fill = "Pretrial")) +
   geom_density(alpha = 0.5) +
@@ -249,29 +261,30 @@ ggplot(combined_groups, aes(x = pretrial_STAI, fill = "Pretrial")) +
   scale_fill_manual(values = c("Pretrial" = "green", "Posttrial" = "orange")) +
   labs(title = "Density Plot of STAI Scores", x = "STAI Score", y = "Density") +
   facet_wrap(~ group)
-
-
 ```
 
-```{r}
+```{r echo=FALSE}
 # QQ plot for Control Group Pretrial GAD
 qqnorm(control_group_cleaned$pretrial_GAD, main = "QQ Plot - Control Group Pretrial GAD")
 qqline(control_group_cleaned$pretrial_GAD, col = "red")
+``` 
 
+``` {r echo=FALSE}
 # QQ plot for Control Group Posttrial GAD
 qqnorm(control_group_cleaned$posttrial_GAD, main = "QQ Plot - Control Group Posttrial GAD")
 qqline(control_group_cleaned$posttrial_GAD, col = "red")
+```
 
+``` {r echo=FALSE}
 # QQ plot for Experimental Group Pretrial STAI
 qqnorm(experimental_group_cleaned$pretrial_GAD, main = "QQ Plot - Experimental Group Pretrial STAI")
 qqline(experimental_group_cleaned$pretrial_GAD, col = "red")
+```
 
+``` {r echo=FALSE}
 # QQ plot for Experimental Group Posttrial STAI
 qqnorm(experimental_group_cleaned$posttrial_GAD, main = "QQ Plot - Experimental Group Posttrial STAI")
 qqline(experimental_group_cleaned$posttrial_GAD, col = "red")
-
-
-
 ```
 
 #### Testing for Normality
@@ -306,7 +319,6 @@ print_ad_results(control_posttrial_STAI_ad)
 
 ```
 
-<<<<<<< Updated upstream
 ##### Shapiro-Wilk Test
 ``` {r echo=FALSE}
 control_pretrial_GAD_sw <- shapiro.test(control_group_cleaned$pretrial_GAD)
@@ -335,14 +347,13 @@ print_sw_results(control_posttrial_STAI_sw)
 ```
 
 ### Method <a name="method"></a>
-=======
-### Hypothesis testings
+#### Hypothesis testings
 
 Now that we have tested for normality, we can assume that all datasets are normally distributed, this entails that we can now proceed with parametric tests. Since the dataset provided two main groups of comparison; pre-test results and post-test results, we have opted to continue with a two-sample T-test that allows the comparison of the means of two groups. It is important to note that the two groups are also independent, which is an important requirement of the chosen test. 
 
 In order to test our hypothesis, we need to calculate the difference between the pretrial results and posttrial results for both control and experimental groups. After, that we can use the mean in both to run a two sample t-test and find a p-value that can test our hypothesis.
 
-```{r}
+```{r echo=FALSE}
 
 # Calculate change in GAD scores
 control_group_results <- control_group_cleaned$posttrial_GAD - control_group_cleaned$pretrial_GAD
@@ -375,10 +386,6 @@ The negative mean change in the experimental group suggests again a reduction in
 The positive mean change in the control group, suggests either a slight increase in STAI scores or a less substantial decrease compared to the experimental group.
 
 Given the very low p-value, you can reject the null hypothesis that there is no difference in STAI score changes between the groups. As with previous results, the results strongly suggest that VR-based therapy was more effective in reducing anxiety levels than traditional CBT in your study.
-
-
-### Results <a name="results"></a>
-
 
 
 
