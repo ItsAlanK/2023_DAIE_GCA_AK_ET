@@ -52,9 +52,7 @@ experimental_group <- read_csv("GROUP_12_2023_GCA_RESULTS_EXPERIMENTAL.csv")
 
 
 ### Abstract <a name="abstract"></a>
-
-
-
+This study investigates the efficacy of Virtual Reality (VR) as a therapeutic tool and compares it to traditional Cognitive Behavioral Therapy (CBT). Through an experiment, participants were assigned to either VR therapy (experimental group) or traditional CBT (control group) and their GAD and State-Trait Anxiety Inventory (STAI) scores were assessed pre and post-treatment. Our statistical analysis focuses on comparing these scores to evaluate therapy effectiveness. 
 
 ### Introduction <a name="introduction"></a>
 As of 2019, approximately 301 million people globally suffer from anxiety disorders, characterized by persistent feelings of anxiety and fear. Virtual Reality (VR) has emerged as a promising therapeutic tool, offering immersive exposure experiences for controlled treatment. Studies demonstrate VR's effectiveness in reducing symptoms of post-traumatic stress disorder and acrophobia, indicating its transformative potential in anxiety disorder treatments. Non-pharmacological therapies, notably Cognitive Behavioral Therapy, are commonly used for Generalized Anxiety Disorder (GAD), employing approaches like Imaginal Exposure Therapy and Stress Inoculation Training. Severity assessment often involves self-report mechanisms such as the State-Trait Anxiety Inventory and Generalized Anxiety Disorder 7-item scale, both scaled from 0 to 10, contributing to a nuanced understanding of anxiety disorders and guiding tailored therapeutic interventions.
@@ -63,24 +61,26 @@ This study will look at the results of an experiment comparing GAD and STAI scor
 
 
 ### Initial Inspection <a name="inspection"></a>
+
 Initial inspection shows the same data types on both datasets. Patients are categorized by gender, and there are numeric scores for Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory (STAI). We have results both for pretrial testing and post trial testing. 
+
+Our preliminary analysis shows consistency in data types and formats. The summary is showing some insight on how the data is distributed, which may indicate initial differences between bot treatments. There are also some outliers visible within the minimum values that might need to be looked at during our cleaning process. We need to first understand if negative values are possible in this type of results which could skew our results to the wrong conclusions.
 
 ```{r echo=FALSE} 
 # Display the first few rows of the datasets (Removes 3rd row which just shows data types)
 # Ref for how to remove data types: https://stackoverflow.com/questions/64734495/suppressing-the-column-classes-for-tibbles
 ```
 
-#### Control Group
-```{r echo=FALSE} 
+
+```{r echo=FALSE, include=FALSE} 
 cat(format(head(control_group))[-3L], sep = "\n")
 ```
 
-#### Experimental Group
-```{r echo=FALSE} 
+
+```{r echo=FALSE, include=FALSE} 
 cat(format(head(experimental_group))[-3L], sep = "\n")
 ```
 
-The summary is showing some insight on how the data is distributed, there are also some outliers visible within the minimum values that might need to be looked at during our cleaning process. We need to first understand if negative values are possible in this type of results.
 
 <!-- Summary of the datasets -->
 #### Summary of Control Group
@@ -362,12 +362,11 @@ experimental_group_results_STAI <- experimental_group_cleaned$posttrial_STAI - e
 
 # Independent t-test for comparing changes between groups
 t.test(control_group_results_STAI, experimental_group_results_STAI)
->>>>>>> Stashed changes
 
 
 ```
 
-Results for GAD Scores:
+### Results for GAD Scores:
 
 For GAD scores, the p-value is approximately 0.0000000004143. This extremely small p-value suggests that the observed difference in mean changes between the control and experimental groups is highly unlikely to have occurred by chance.
 

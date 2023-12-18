@@ -378,6 +378,13 @@ Efficacy in the Treatment of GAD</h1>
 </div>
 <div id="abstract" class="section level3">
 <h3>Abstract <a name="abstract"></a></h3>
+<p>This study investigates the efficacy of Virtual Reality (VR) as a
+therapeutic tool and compares it to traditional Cognitive Behavioral
+Therapy (CBT). Through an experiment, participants were assigned to
+either VR therapy (experimental group) or traditional CBT (control
+group) and their GAD and State-Trait Anxiety Inventory (STAI) scores
+were assessed pre and post-treatment. Our statistical analysis focuses
+on comparing these scores to evaluate therapy effectiveness.</p>
 </div>
 <div id="introduction" class="section level3">
 <h3>Introduction <a name="introduction"></a></h3>
@@ -409,33 +416,14 @@ Patients are categorized by gender, and there are numeric scores for
 Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory
 (STAI). We have results both for pretrial testing and post trial
 testing.</p>
-<div id="control-group" class="section level4">
-<h4>Control Group</h4>
-<pre><code>## # A tibble: 6 × 6
-##   patientID gender pretrial_GAD pretrial_STAI posttrial_GAD posttrial_STAI
-## 1         1 male             15            64            13             60
-## 2         2 male             11            54            12             59
-## 3         3 male             11            53            12             55
-## 4         4 male              9            51            11             55
-## 5         5 male             15            64            12             61
-## 6         6 female           13            58            10             63</code></pre>
-</div>
-<div id="experimental-group" class="section level4">
-<h4>Experimental Group</h4>
-<pre><code>## # A tibble: 6 × 6
-##   patientID gender pretrial_GAD pretrial_STAI posttrial_GAD posttrial_STAI
-## 1         1 male             16            64            12             56
-## 2         2 male             18            65            16             63
-## 3         3 female           18            68            16             64
-## 4         4 male             19            69            16             61
-## 5         5 male             14            58             9             59
-## 6         6 female           14            55            13             51</code></pre>
-<p>The summary is showing some insight on how the data is distributed,
-there are also some outliers visible within the minimum values that
-might need to be looked at during our cleaning process. We need to first
-understand if negative values are possible in this type of results.</p>
+<p>Our preliminary analysis shows consistency in data types and formats.
+The summary is showing some insight on how the data is distributed,
+which may indicate initial differences between bot treatments. There are
+also some outliers visible within the minimum values that might need to
+be looked at during our cleaning process. We need to first understand if
+negative values are possible in this type of results which could skew
+our results to the wrong conclusions.</p>
 <!-- Summary of the datasets -->
-</div>
 <div id="summary-of-control-group" class="section level4">
 <h4>Summary of Control Group</h4>
 <pre><code>##    patientID        gender           pretrial_GAD   pretrial_STAI  
@@ -660,9 +648,8 @@ qqline(experimental_group_cleaned$posttrial_GAD, col = &quot;red&quot;)</code></
 <pre><code>## [1] From the output obtained we can assume normality as the p-value of 0.0811 is greater than 0.05 for data: control_group_cleaned$posttrial_GAD</code></pre>
 <pre><code>## [1] From the output obtained we can assume normality as the p-value of 0.4576 is greater than 0.05 for data: control_group_cleaned$pretrial_STAI</code></pre>
 <pre><code>## [1] From the output obtained we can assume normality as the p-value of 0.3668 is greater than 0.05 for data: control_group_cleaned$posttrial_STAI</code></pre>
-</div>
-<div id="shapiro-wilk-test" class="section level5">
-<h5>Shapiro-Wilk Test</h5>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream ##### Shapiro-Wilk
+Test</p>
 <pre><code>## [1] A Shapiro-Wilk normality test was conducted on the data.</code></pre>
 <pre><code>## [1] From the output obtained we can assume normality as the p-value of 0.2959 is greater than 0.05 for data: control_group_cleaned$pretrial_GAD</code></pre>
 <pre><code>## [1] From the output obtained we can assume normality as the p-value of 0.3067 is greater than 0.05 for data: control_group_cleaned$posttrial_GAD</code></pre>
@@ -671,6 +658,8 @@ qqline(experimental_group_cleaned$posttrial_GAD, col = &quot;red&quot;)</code></
 </div>
 </div>
 </div>
+<div id="method" class="section level1">
+<h1>### Method <a name="method"></a></h1>
 <div id="hypothesis-testings" class="section level3">
 <h3>Hypothesis testings</h3>
 <p>Now that we have tested for normality, we can assume that all
@@ -719,7 +708,9 @@ t.test(control_group_results_STAI, experimental_group_results_STAI)</code></pre>
 ## sample estimates:
 ##  mean of x  mean of y 
 ##  0.9318182 -3.3181818</code></pre>
-<p>Results for GAD Scores:</p>
+</div>
+<div id="results-for-gad-scores" class="section level3">
+<h3>Results for GAD Scores:</h3>
 <p>For GAD scores, the p-value is approximately 0.0000000004143. This
 extremely small p-value suggests that the observed difference in mean
 changes between the control and experimental groups is highly unlikely
@@ -761,6 +752,7 @@ Min &amp; Max values</a></li>
 <li><a href="https://www.corc.uk.net/outcome-experience-measures/generalised-anxiety-disorder-assessment-gad-7/#:~:text=GAD%2D7%20total%20score%20for%20the%20seven%20items%20ranges%20from%200%20to%2021.">GAD
 Min &amp; Max values</a></li>
 </ul>
+</div>
 </div>
 
 
