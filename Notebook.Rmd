@@ -346,9 +346,7 @@ print_sw_results(control_posttrial_STAI_sw)
 ### Method <a name="method"></a>
 #### Hypothesis testings
 
-Now that we have tested for normality, we can assume that all datasets are normally distributed, this entails that we can now proceed with parametric tests. Since the dataset provided two main groups of comparison; pre-test results and post-test results, we have opted to continue with a two-sample T-test that allows the comparison of the means of two groups. It is important to note that the two groups are also independent, which is an important requirement of the chosen test. 
-
-In order to test our hypothesis, we need to calculate the difference between the pretrial results and posttrial results for both control and experimental groups. After, that we can use the mean in both to run a two sample t-test and find a p-value that can test our hypothesis.
+Now that we have tested for normality, we can assume that all datasets are normally distributed, which allows us to proceed with parametric tests. Our focus is the change in scores from pretrial to posttrial within each group. To analyze this, we'll use paired T-tests, comparing pretrial and posttrial scores for each participant within the control and experimental groups. This allows us to assess the effect of each treatment type within the respective groups and establish a comparison for their effectiveness. 
 
 ```{r echo=FALSE}
 
@@ -369,25 +367,19 @@ t.test(control_group_results_STAI, experimental_group_results_STAI)
 
 ```
 
-### Results for GAD Scores:
+### Results:
 
-For GAD scores, the p-value is approximately 0.0000000004143. This extremely small p-value suggests that the observed difference in mean changes between the control and experimental groups is highly unlikely to have occurred by chance.
+Our analysis, utilizing Welch's Two Sample t-tests, revealed a statistically significant difference in treatment effectiveness between the control group (CBT) and the experimental group (VR therapy) for both GAD (Generalized Anxiety Disorder) and STAI (State-Trait Anxiety Inventory) scores.
 
-The negative mean changes in both groups suggest that GAD scores decreased in both groups after the treatment, indicating improvement. The more negative mean change in the experimental group (VR-based therapy) compared to the control group (traditional CBT) suggests a greater reduction in GAD scores, which implies that the VR-based therapy was more effective in reducing GAD scores than the traditional CBT.
+For GAD scores, the p-value obtained was approximately 4.143e-10, which indicates an extremely low probability of observing the same difference by chance. This p-value strongly refutes the null hypothesis (H0) that VR-based therapy has no significant difference in effectiveness compared to traditional CBT therapy for GAD. The negative mean change in both groups reflects a decrease in GAD scores post-treatment, with the experimental group demonstrating a more substantial reduction.
 
-In summary, based on these results, we can conclude that VR-based therapy led to a significantly greater reduction in GAD scores compared to traditional CBT in your study.
+Similarly, for STAI scores, the p-value obtained was approximately 9.28e-14, once again emphasizing a very low likelihood of obtaining these results by chance. This p-value also rejects the null hypothesis (H0) that there is no difference in effectiveness between the two treatment methods for reducing anxiety levels. The negative mean change in the experimental group indicates a reduction in anxiety levels, contrasting with the control group, where a negative value was not reached.
 
-Results for STAI Scores
-
-The negative mean change in the experimental group suggests again a reduction in STAI scores, indicating a decrease in anxiety levels after treatment. 
-The positive mean change in the control group, suggests either a slight increase in STAI scores or a less substantial decrease compared to the experimental group.
-
-Given the very low p-value, you can reject the null hypothesis that there is no difference in STAI score changes between the groups. As with previous results, the results strongly suggest that VR-based therapy was more effective in reducing anxiety levels than traditional CBT in your study.
+In summary, both extremely low p-values provide strong evidence that VR-based therapy is significantly more effective than traditional CBT therapy in reducing symptoms of Generalized Anxiety disorder.
 
 
 
 ### Discussion <a name="discussion"></a>
-
 
 
 
