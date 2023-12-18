@@ -465,23 +465,21 @@ our results to the wrong conclusions.</p>
 found 0 missing values in the control group and 0 missing values in the
 experimental group meaning no participants need to be removed for lack
 of data.</p>
-<p>Upon inspecting data types by viewing the structure of the data, all
-data types match what they should:</p>
-<ul>
-<li>Patient ID, and test results are all numbers</li>
-<li>Gender are all character strings</li>
-</ul>
+<p>We then verified the data types, ensuring that patient IDs were
+treated as character strings to avoid any numerical interpretation in
+our analyses, and that test results were appropriately handled as
+numeric values. This step was essential for accurate statistical
+computations.</p>
 <div id="filtering-values-outside-of-test-boundaries" class="section level4">
 <h4>Filtering values outside of test boundaries</h4>
 <!-- Filters each group to new dataset removing any results outside of what test results can be -->
 <!-- GAD 0 - 21, STAI 20 - 80-->
-<p>Data has also been cleaned above to remove any test responses outside
-of the test boundaries. GAD test have a lower score limit of 0 and an
-upper limit of 21, while STAI has a lower and upper limit of 20 and 80
-respectively. When compared to earlier data chunks we can see that no
-values min or max for any test lie outside of expected results now and
-we have no invalid values either. See <a href="#references">references
-for sources on test boundaries</a></p>
+<p>A key part of our cleanup involved filtering out test scores outside
+the boundaries for GAD (0-21) and STAI (20-80). This was necessary, as
+scores outside these ranges would not be considered clinically
+meaningful and could be attributed to typing error. After applying these
+filters, we reassessed the data to confirm that no outliers remained,
+which is clear in the summary minimum and maximum values. See <a href="#references">references for sources on test boundaries</a></p>
 </div>
 <div id="summary-of-control-group-after-cleanup" class="section level4">
 <h4>Summary of Control Group After Cleanup</h4>
@@ -516,9 +514,11 @@ for sources on test boundaries</a></p>
 ##  Mean   :13.88   Mean   :57.49  
 ##  3rd Qu.:16.00   3rd Qu.:63.00  
 ##  Max.   :19.00   Max.   :69.00</code></pre>
-<p>After cleaning, the count of results remained even with 88 results
-for both control and experimental group so further sampling is not
-required.</p>
+<p>Post-cleanup, our datasets present a more accurate reflection of the
+experiment results. Both control and experimental groups show data
+consistency, with no invalid values, and remained well distributed
+within the expected score ranges.This is a solid foundation for us to
+formulate our hypothesis.</p>
 </div>
 </div>
 <div id="hypothesis-formulation" class="section level3">

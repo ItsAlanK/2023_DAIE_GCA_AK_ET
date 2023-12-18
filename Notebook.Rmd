@@ -108,10 +108,7 @@ expDataTypes <- str(experimental_group)
 
 During the data cleanup stage we checked for any missing values and found `r cntlMissingCount` missing values in the control group and `r expMissingCount` missing values in the experimental group meaning no participants need to be removed for lack of data.
 
-Upon inspecting data types by viewing the structure of the data, all data types match what they should:
-
-- Patient ID, and test results are all numbers
-- Gender are all character strings
+We then verified the data types, ensuring that patient IDs were treated as character strings to avoid any numerical interpretation in our analyses, and that test results were appropriately handled as numeric values. This step was essential for accurate statistical computations.
 
 
 #### Filtering values outside of test boundaries 
@@ -135,9 +132,7 @@ mutate(patientID = as.character(patientID))
 experimental_group_cleaned <- experimental_group %>% filter(pretrial_GAD >= 0, pretrial_STAI >= 0, posttrial_GAD >= 0, posttrial_STAI >= 0, , pretrial_GAD <= 21, pretrial_STAI <= 80, posttrial_GAD <= 21, posttrial_STAI <= 80) 
 ```
 
-
-
-Data has also been cleaned above to remove any test responses outside of the test boundaries. GAD test have a lower score limit of 0 and an upper limit of 21, while STAI has a lower and upper limit of 20 and 80 respectively. When compared to earlier data chunks we can see that no values min or max for any test lie outside of expected results now and we have no invalid values either. See [references for sources on test boundaries](#references)
+A key part of our cleanup involved filtering out test scores outside the boundaries for GAD (0-21) and STAI (20-80). This was necessary, as scores outside these ranges would not be considered clinically meaningful and could be attributed to typing error. After applying these filters, we reassessed the data to confirm that no outliers remained, which is clear in the summary minimum and maximum values. See [references for sources on test boundaries](#references)
 
 #### Summary of Control Group After Cleanup
 ``` {r echo=FALSE}
@@ -154,7 +149,7 @@ count_control_cleaned <- count(control_group_cleaned)
 count_experimental_cleaned <- count(experimental_group_cleaned)
 ```
 
-After cleaning, the count of results remained even with `r count_control_cleaned` results for both control and experimental group so further sampling is not required.
+Post-cleanup, our datasets present a more accurate reflection of the experiment results. Both control and experimental groups show data consistency, with no invalid values, and remained well distributed within the expected score ranges.This is a solid foundation for us to formulate our hypothesis. 
 
 ### Hypothesis Formulation
 
