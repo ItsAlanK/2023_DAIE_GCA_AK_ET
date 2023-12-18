@@ -225,10 +225,12 @@ ggplot(combined_groups, aes(x = group, y = pretrial_STAI, fill = group)) +
     geom_boxplot() +
     labs(title = "Pre-Trial STAI Scores by Group", x = "Group", y = "Pre-Trial STAI Score")
 
+# Calling the mean of each group for future reference
 control_pretrial_STAI_mean <- mean(control_group_cleaned$pretrial_STAI)
 control_posttrial_STAI_mean <- mean(control_group_cleaned$posttrial_STAI)
-control_pretrial_STAI_mean
-control_posttrial_STAI_mean
+
+experimental_pretrial_STAI_mean <- mean(experimental_group_cleaned$pretrial_STAI)
+experimental_posttrial_STAI_mean <- mean(experimental_group_cleaned$posttrial_STAI)
 ```
 
 ``` {r echo=FALSE}
@@ -236,11 +238,6 @@ control_posttrial_STAI_mean
 ggplot(combined_groups, aes(x = group, y = posttrial_STAI, fill = group)) +
     geom_boxplot() +
     labs(title = "Post-Trial STAI Scores by Group", x = "Group", y = "Post-Trial STAI Score")
-
-experimental_pretrial_STAI_mean <- mean(experimental_group_cleaned$pretrial_STAI)
-experimental_posttrial_STAI_mean <- mean(experimental_group_cleaned$posttrial_STAI)
-experimental_pretrial_STAI_mean
-experimental_posttrial_STAI_mean
 ```
 
 ``` {r echo=FALSE}
