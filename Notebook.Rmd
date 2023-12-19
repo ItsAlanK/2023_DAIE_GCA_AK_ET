@@ -261,7 +261,7 @@ qqline(experimental_group_cleaned$posttrial_GAD, col = "red")
 
 #### Visualization of STAI results for pre-trial and post-trial groups
 
-``` {r echo=FALSE}
+``` {r echo=FALSE, comment=NA}
 # Visualizing the pre-trial STAI scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = pretrial_STAI, fill = group)) +
     geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
@@ -273,13 +273,19 @@ control_posttrial_STAI_mean <- mean(control_group_cleaned$posttrial_STAI)
 
 experimental_pretrial_STAI_mean <- mean(experimental_group_cleaned$pretrial_STAI)
 experimental_posttrial_STAI_mean <- mean(experimental_group_cleaned$posttrial_STAI)
+
+cat("Control Pre Trial mean STAI score: ", control_pretrial_STAI_mean)
+cat("Experimental Pre Trial mean STAI score: ", experimental_pretrial_STAI_mean, sep="\n")
 ```
 
-``` {r echo=FALSE}
+``` {r echo=FALSE, comment=NA}
 # Visualizing the post-trial STAI scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = posttrial_STAI, fill = group)) +
     geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
     labs(title = "Post-Trial STAI Scores by Group", x = "Group", y = "Post-Trial STAI Score")
+
+cat("Control Pre Trial mean STAI score: ", control_pretrial_STAI_mean)
+cat("Experimental Pre Trial mean STAI score: ", experimental_pretrial_STAI_mean, sep="\n")
 ```
 
 ``` {r echo=FALSE}
