@@ -439,6 +439,8 @@ t.test(control_group_results_STAI, experimental_group_results_STAI)
 
 ```
 
+### Discussion <a name="discussion"></a>
+
 Our analysis, utilizing Welch's Two Sample t-tests, revealed a statistically significant difference in treatment effectiveness between the control group (CBT) and the experimental group (VR therapy) for both GAD (Generalized Anxiety Disorder) and STAI (State-Trait Anxiety Inventory) scores.
 
 For GAD scores, the p-value obtained was approximately 4.143e-10, which indicates an extremely low probability of observing the same difference by chance. This p-value strongly refutes the null hypothesis (H0) that VR-based therapy has no significant difference in effectiveness compared to traditional CBT therapy for GAD. The negative mean change in both groups reflects a decrease in GAD scores post-treatment, with the experimental group demonstrating a more substantial reduction.
@@ -446,11 +448,6 @@ For GAD scores, the p-value obtained was approximately 4.143e-10, which indicate
 Similarly, for STAI scores, the p-value obtained was approximately 9.28e-14, once again emphasizing a very low likelihood of obtaining these results by chance. This p-value also rejects the null hypothesis (H0) that there is no difference in effectiveness between the two treatment methods for reducing anxiety levels. The negative mean change in the experimental group indicates a reduction in anxiety levels, contrasting with the control group, where a negative value was not reached.
 
 In summary, both extremely low p-values provide strong evidence that VR-based therapy is significantly more effective than traditional CBT therapy in reducing symptoms of Generalized Anxiety disorder.
-
-
-
-### Discussion <a name="discussion"></a>
-
 
 
 ### References <a name="references"></a>
