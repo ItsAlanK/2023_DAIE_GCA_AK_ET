@@ -288,7 +288,7 @@ qqline(experimental_group_cleaned$posttrial_GAD, col = "red")
 
 #### Testing for Normality
 ##### Anderson-Darling Test
-``` {r echo=FALSE}
+``` {r echo=FALSE, comment=NA}
 
 # Anderson-Darling Test, referenced from class example https://github.com/nmcguinness/2023_MSC_DataAnalytics_IntroToR/blob/main/Examples/9_TestingForNormality.R
 
@@ -297,15 +297,15 @@ control_posttrial_GAD_ad <- ad.test(control_group_cleaned$posttrial_GAD)
 control_pretrial_STAI_ad <- ad.test(control_group_cleaned$pretrial_STAI)
 control_posttrial_STAI_ad <- ad.test(control_group_cleaned$posttrial_STAI)
 
-noquote(paste("A",control_pretrial_GAD_ad$method, "was conducted on the data."))
+cat(paste("A",control_pretrial_GAD_ad$method, "was conducted on the data."))
 
 print_ad_results <- function(tested_data) { # create a function with the name my_function
   if(tested_data$p.value < 0.05)
   {
-    noquote(paste("From the output obtained we can not assume normality as the p-value of", round(tested_data$p.value, 4), "is less than 0.05 for data:", tested_data$data))
+    cat(paste("From the output obtained we can not assume normality as the p-value of", round(tested_data$p.value, 4), "is less than 0.05 for data:", tested_data$data))
   } else #note in R we need to put the else as shown (i.e. immediately after the { bracket) and not on a new line (as we can in C, C++, C#)
   { 
-    noquote(paste("From the output obtained we can assume normality as the p-value of", round(tested_data$p.value, 4), "is greater than 0.05 for data:", tested_data$data))
+    cat(paste("From the output obtained we can assume normality as the p-value of", round(tested_data$p.value, 4), "is greater than 0.05 for data:", tested_data$data))
   }
 }
 
@@ -319,21 +319,21 @@ print_ad_results(control_posttrial_STAI_ad)
 ```
 
 ##### Shapiro-Wilk Test
-``` {r echo=FALSE}
+``` {r echo=FALSE, comment = NA}
 control_pretrial_GAD_sw <- shapiro.test(control_group_cleaned$pretrial_GAD)
 control_posttrial_GAD_sw <- shapiro.test(control_group_cleaned$posttrial_GAD)
 control_pretrial_STAI_sw <- shapiro.test(control_group_cleaned$pretrial_STAI)
 control_posttrial_STAI_sw <- shapiro.test(control_group_cleaned$posttrial_STAI)
 
-noquote(paste("A",control_pretrial_GAD_sw$method, "was conducted on the data."))
+cat(paste("A",control_pretrial_GAD_sw$method, "was conducted on the data."))
 
 print_sw_results <- function(tested_data) { # create a function with the name my_function
   if(tested_data$p.value < 0.05)
 {
-  noquote(paste("From the output obtained we can not assume normality as the p-value of", round(tested_data$p.value, 4), "is less than 0.05 for data:", tested_data$data))
+  cat(paste("From the output obtained we can not assume normality as the p-value of", round(tested_data$p.value, 4), "is less than 0.05 for data:", tested_data$data))
 } else
 { 
-  noquote(paste("From the output obtained we can assume normality as the p-value of", round(tested_data$p.value, 4), "is greater than 0.05 for data:", tested_data$data))
+  cat(paste("From the output obtained we can assume normality as the p-value of", round(tested_data$p.value, 4), "is greater than 0.05 for data:", tested_data$data))
 }
 }
 
