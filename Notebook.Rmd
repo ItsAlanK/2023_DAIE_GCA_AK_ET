@@ -6,18 +6,18 @@ output: html_document
 ---
 
 <!-- This is what a comment looks like-->
-### Table of Contents
+## Table of Contents
 
 <!-- 1. [Setup](#setup)
 2. [Data Loading](#data-load) -->
 1. [Abstract](#abstract)
 2. [Introduction](#introduction)
-3. [Initial Inspection](#inspection)
-4. [Data Cleanup](#cleanup) 
-5. [Method](#method)
-6. [Results](#results)
-7. [Discussion](#discussion)
-8. [References](#references)
+3. [Method](#method)
+    - [Initial Inspection](#inspection)
+    - [Data Cleanup](#cleanup)
+4. [Results](#results)
+5. [Discussion](#discussion)
+6. [References](#references)
 
 <!-- ### Setup <a name="setup"></a> -->
 ```{r include=FALSE}
@@ -51,15 +51,16 @@ experimental_group <- read_csv("GROUP_12_2023_GCA_RESULTS_EXPERIMENTAL.csv")
 ```
 
 
-### Abstract <a name="abstract"></a>
+## Abstract <a name="abstract"></a>
 This study investigates the efficacy of Virtual Reality (VR) as a therapeutic tool and compares it to traditional Cognitive Behavioral Therapy (CBT). Through an experiment, participants were assigned to either VR therapy (experimental group) or traditional CBT (control group) and their GAD and State-Trait Anxiety Inventory (STAI) scores were assessed pre and post-treatment. Our statistical analysis focuses on comparing these scores to evaluate therapy effectiveness. 
 
-### Introduction <a name="introduction"></a>
+## Introduction <a name="introduction"></a>
 As of 2019, approximately 301 million people globally suffer from anxiety disorders, characterized by persistent feelings of anxiety and fear. Virtual Reality (VR) has emerged as a promising therapeutic tool, offering immersive exposure experiences for controlled treatment. Studies demonstrate VR's effectiveness in reducing symptoms of post-traumatic stress disorder and acrophobia, indicating its transformative potential in anxiety disorder treatments. Non-pharmacological therapies, notably Cognitive Behavioral Therapy, are commonly used for Generalized Anxiety Disorder (GAD), employing approaches like Imaginal Exposure Therapy and Stress Inoculation Training. Severity assessment often involves self-report mechanisms such as the State-Trait Anxiety Inventory and Generalized Anxiety Disorder 7-item scale, both scaled from 0 to 10, contributing to a nuanced understanding of anxiety disorders and guiding tailored therapeutic interventions.
 
 This study will look at the results of an experiment comparing GAD and STAI scores of patients treated using traditional CBT (Control Group) and VR Therapy (Experimental Group) to identify the degree to which VR therapy has an effect compartive to proven therapy techniques.
 
 
+## Method <a name="method"></a>
 ### Initial Inspection <a name="inspection"></a>
 
 Initial inspection shows the same data types on both datasets. Patients are categorized by gender, and there are numeric scores for Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory (STAI). We have results both for pretrial testing and post trial testing. 
@@ -152,7 +153,7 @@ count_experimental_cleaned <- count(experimental_group_cleaned)
 ```
 
 
-### Hypothesis Formulation
+#### Hypothesis Formulation
 
 After our initial inspection, more specifically after comparing the difference between means of pre-trial and post-trial scores for both GAD and STAI results, we have come to following hypotheses:
 
@@ -163,7 +164,7 @@ After our initial inspection, more specifically after comparing the difference b
 The validation of these hypotheses will be through a statistical analysis of GAD and STAI scores from both the control (CBT) and experimental (VR) groups.
 
 
-### Visual Inspection for Normality
+#### Visual Inspection for Normality
 
 In order to determine the kind of testing we will run for our hypotheses, we will first review our datasets more in depth and determine if they are normally distributed or not. This will educate our next steps. For this analysis we will do a visual inspection first using BoxPlots, histograms, density plots and QQ plots. 
 ``` {r echo=FALSE}
@@ -405,8 +406,8 @@ sw_result4 <- print_sw_results(control_posttrial_STAI_sw)
 
 From results of all Normality tests we can conclusively confirm the data to be normally distributed.
 
-### Method <a name="method"></a>
-#### Hypothesis testings
+### Results <a name="results"></a>
+### Hypothesis testings
 
 Now that we have tested for normality, we can assume that all datasets are normally distributed, which allows us to proceed with parametric tests. Our focus is the change in scores from pretrial to posttrial within each group. To analyze this, we'll use paired T-tests, comparing pretrial and posttrial scores for each participant within the control and experimental groups. This allows us to assess the effect of each treatment type within the respective groups and establish a comparison for their effectiveness. 
 
@@ -428,8 +429,6 @@ t.test(control_group_results_STAI, experimental_group_results_STAI)
 
 
 ```
-
-### Results:
 
 Our analysis, utilizing Welch's Two Sample t-tests, revealed a statistically significant difference in treatment effectiveness between the control group (CBT) and the experimental group (VR therapy) for both GAD (Generalized Anxiety Disorder) and STAI (State-Trait Anxiety Inventory) scores.
 

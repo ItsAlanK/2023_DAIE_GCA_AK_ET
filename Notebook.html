@@ -358,16 +358,18 @@ Efficacy in the Treatment of GAD</h1>
 
 
 <!-- This is what a comment looks like-->
-<div id="table-of-contents" class="section level3">
-<h3>Table of Contents</h3>
+<div id="table-of-contents" class="section level2">
+<h2>Table of Contents</h2>
 <!-- 1. [Setup](#setup)
 2. [Data Loading](#data-load) -->
 <ol style="list-style-type: decimal">
 <li><a href="#abstract">Abstract</a></li>
 <li><a href="#introduction">Introduction</a></li>
+<li><a href="#method">Method</a>
+<ul>
 <li><a href="#inspection">Initial Inspection</a></li>
 <li><a href="#cleanup">Data Cleanup</a></li>
-<li><a href="#method">Method</a></li>
+</ul></li>
 <li><a href="#results">Results</a></li>
 <li><a href="#discussion">Discussion</a></li>
 <li><a href="#references">References</a></li>
@@ -376,8 +378,8 @@ Efficacy in the Treatment of GAD</h1>
 <!-- ### Data Loading <a name="data-load"></a> -->
 <!-- Loading our Datasets into R Studio -->
 </div>
-<div id="abstract" class="section level3">
-<h3>Abstract <a name="abstract"></a></h3>
+<div id="abstract" class="section level2">
+<h2>Abstract <a name="abstract"></a></h2>
 <p>This study investigates the efficacy of Virtual Reality (VR) as a
 therapeutic tool and compares it to traditional Cognitive Behavioral
 Therapy (CBT). Through an experiment, participants were assigned to
@@ -386,8 +388,8 @@ group) and their GAD and State-Trait Anxiety Inventory (STAI) scores
 were assessed pre and post-treatment. Our statistical analysis focuses
 on comparing these scores to evaluate therapy effectiveness.</p>
 </div>
-<div id="introduction" class="section level3">
-<h3>Introduction <a name="introduction"></a></h3>
+<div id="introduction" class="section level2">
+<h2>Introduction <a name="introduction"></a></h2>
 <p>As of 2019, approximately 301 million people globally suffer from
 anxiety disorders, characterized by persistent feelings of anxiety and
 fear. Virtual Reality (VR) has emerged as a promising therapeutic tool,
@@ -409,6 +411,8 @@ Group) and VR Therapy (Experimental Group) to identify the degree to
 which VR therapy has an effect compartive to proven therapy
 techniques.</p>
 </div>
+<div id="method" class="section level2">
+<h2>Method <a name="method"></a></h2>
 <div id="initial-inspection" class="section level3">
 <h3>Initial Inspection <a name="inspection"></a></h3>
 <p>Initial inspection shows the same data types on both datasets.
@@ -520,9 +524,8 @@ formulate our hypothesis.</p>
 ##  3rd Qu.:16.00   3rd Qu.:63.00  
 ##  Max.   :19.00   Max.   :69.00</code></pre>
 </div>
-</div>
-<div id="hypothesis-formulation" class="section level3">
-<h3>Hypothesis Formulation</h3>
+<div id="hypothesis-formulation" class="section level4">
+<h4>Hypothesis Formulation</h4>
 <p>After our initial inspection, more specifically after comparing the
 difference between means of pre-trial and post-trial scores for both GAD
 and STAI results, we have come to following hypotheses:</p>
@@ -538,13 +541,14 @@ Generalized Anxiety Disorder (GAD).</p></li>
 analysis of GAD and STAI scores from both the control (CBT) and
 experimental (VR) groups.</p>
 </div>
-<div id="visual-inspection-for-normality" class="section level3">
-<h3>Visual Inspection for Normality</h3>
+<div id="visual-inspection-for-normality" class="section level4">
+<h4>Visual Inspection for Normality</h4>
 <p>In order to determine the kind of testing we will run for our
 hypotheses, we will first review our datasets more in depth and
 determine if they are normally distributed or not. This will educate our
 next steps. For this analysis we will do a visual inspection first using
 BoxPlots, histograms, density plots and QQ plots.</p>
+</div>
 <div id="visualization-of-gad-results-for-pre-trial-and-post-trial-groups" class="section level4">
 <h4>Visualization of GAD results for pre-trial and post-trial
 groups</h4>
@@ -642,10 +646,11 @@ data to be normally distributed.</p>
 </div>
 </div>
 </div>
-<div id="method" class="section level3">
-<h3>Method <a name="method"></a></h3>
-<div id="hypothesis-testings" class="section level4">
-<h4>Hypothesis testings</h4>
+<div id="results" class="section level3">
+<h3>Results <a name="results"></a></h3>
+</div>
+<div id="hypothesis-testings" class="section level3">
+<h3>Hypothesis testings</h3>
 <p>Now that we have tested for normality, we can assume that all
 datasets are normally distributed, which allows us to proceed with
 parametric tests. Our focus is the change in scores from pretrial to
@@ -676,10 +681,6 @@ comparison for their effectiveness.</p>
 ## sample estimates:
 ##  mean of x  mean of y 
 ##  0.9318182 -3.3181818</code></pre>
-</div>
-</div>
-<div id="results" class="section level3">
-<h3>Results:</h3>
 <p>Our analysis, utilizing Welch’s Two Sample t-tests, revealed a
 statistically significant difference in treatment effectiveness between
 the control group (CBT) and the experimental group (VR therapy) for both
@@ -718,6 +719,7 @@ Information informing min/max scores</a></li>
 <li>Normality testing conditional logic from <a href="https://github.com/nmcguinness/2023_MSC_DataAnalytics_IntroToR/blob/main/Examples/9_TestingForNormality.R">Class
 Example 9</a></li>
 </ul>
+</div>
 </div>
 
 
