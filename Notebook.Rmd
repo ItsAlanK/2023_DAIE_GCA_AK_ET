@@ -64,7 +64,7 @@ This study will look at the results of an experiment comparing GAD and STAI scor
 
 Initial inspection shows the same data types on both datasets. Patients are categorized by gender, and there are numeric scores for Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory (STAI). We have results both for pretrial testing and post trial testing. 
 
-Our preliminary analysis shows consistency in data types and formats. The summary is showing some insight on how the data is distributed, which may indicate initial differences between bot treatments. There are also some outliers visible within the minimum values that might need to be looked at during our cleaning process. We need to first understand if negative values are possible in this type of results which could skew our results to the wrong conclusions.
+Our preliminary analysis shows consistency in data types and formats. The summary is showing some insight on how the data is distributed, which may indicate initial differences between both treatments. There are also some outliers visible within the minimum values that might need to be looked at during our cleaning process. We need to first understand if negative values are possible in this type of results and if they could skew our results to the wrong conclusions.
 
 ```{r echo=FALSE} 
 # Display the first few rows of the datasets (Removes 3rd row which just shows data types)
@@ -73,12 +73,12 @@ Our preliminary analysis shows consistency in data types and formats. The summar
 
 
 ```{r echo=FALSE, include=FALSE} 
-cat(format(head(control_group))[-3L], sep = "\n")
+cat(format(head(control_group))[-3L], sep = "\n") # Removed as only useful for first look
 ```
 
 
 ```{r echo=FALSE, include=FALSE} 
-cat(format(head(experimental_group))[-3L], sep = "\n")
+cat(format(head(experimental_group))[-3L], sep = "\n") # Removed as only useful for first look
 ```
 
 
@@ -134,6 +134,8 @@ experimental_group_cleaned <- experimental_group %>% filter(pretrial_GAD >= 0, p
 
 A key part of our cleanup involved filtering out test scores outside the boundaries for GAD (0-21) and STAI (20-80). This was necessary, as scores outside these ranges would not be considered clinically meaningful and could be attributed to typing error. After applying these filters, we reassessed the data to confirm that no outliers remained, which is clear in the summary minimum and maximum values. See [references for sources on test boundaries](#references)
 
+Post-cleanup, our datasets present a more accurate reflection of the experiment results. Both control and experimental groups show data consistency, with no invalid values, and remained well distributed within the expected score ranges.This is a solid foundation for us to formulate our hypothesis. 
+
 #### Summary of Control Group After Cleanup
 ``` {r echo=FALSE}
 summary(control_group_cleaned) 
@@ -149,7 +151,6 @@ count_control_cleaned <- count(control_group_cleaned)
 count_experimental_cleaned <- count(experimental_group_cleaned)
 ```
 
-Post-cleanup, our datasets present a more accurate reflection of the experiment results. Both control and experimental groups show data consistency, with no invalid values, and remained well distributed within the expected score ranges.This is a solid foundation for us to formulate our hypothesis. 
 
 ### Hypothesis Formulation
 
@@ -161,9 +162,10 @@ After our initial inspection, more specifically after comparing the difference b
 
 The validation of these hypotheses will be through a statistical analysis of GAD and STAI scores from both the control (CBT) and experimental (VR) groups.
 
-### Data deep dive 
 
-#### Visual Inspection of Normality
+### Visual Inspection for Normality
+
+In order to determine the kind of testing we will run for our hypotheses, we will first review our datasets more in depth and determine if they are normally distributed or not. This will educate our next steps. For this analysis we will do a visual inspection first using BoxPlots, histograms, density plots and QQ plots. 
 ``` {r echo=FALSE}
 # Adding a 'group' column to each dataset, this is so we can combine them next and we can keep differentiating them. 
 control_group_cleaned$group <- 'Control'
@@ -172,6 +174,12 @@ experimental_group_cleaned$group <- 'Experimental'
 # Combining the datasets, this will help us compare the data in different plots.
 combined_groups <- rbind(control_group_cleaned, experimental_group_cleaned)
 ```
+
+
+
+#### Visualization of GAD results for pre-trial and post-trial groups
+
+The boxplots provide an initial visual indication of the data's distribution. In the control group, the boxplot reveals a slight asymmetry in post-trial GAD scores, suggesting potential skewness. Comparatively, the experimental group's boxplot shows a more symmetric distribution, aligning closer with normality. 
 
 ```{r echo=FALSE, comment=NA}
 
@@ -201,6 +209,8 @@ cat("Control Post Trial mean GAD score: ", control_posttrial_GAD_mean)
 cat("Experimental Post Trial mean GAD score: ", experimental_posttrial_GAD_mean, sep="\n")
 ```
 
+In this joint histograms and density plots we can look for the distribution curves of our data. The control group's pre-trial GAD scores exhibit a bell-shaped curve but with noticeable deviations, hinting at a non-normal distribution. In contrast, the experimental group's post-trial GAD scores display a more uniform bell shape, suggesting normality. The varying peak heights and spread of the histograms across different test scores highlight the diverse response patterns between the two groups.
+
 ```{r echo=FALSE}
 # Histogram for GAD scores
 ggplot(combined_groups) +
@@ -220,6 +230,36 @@ ggplot(combined_groups, aes(x = pretrial_GAD, fill = "Pretrial")) +
   labs(title = "Density Plot of GAD Scores", x = "GAD Score", y = "Density") +
   facet_wrap(~ group)
 ```
+
+
+```{r echo=FALSE}
+# QQ plot for Control Group Pretrial GAD
+qqnorm(control_group_cleaned$pretrial_GAD, main = "QQ Plot - Control Group Pretrial GAD")
+qqline(control_group_cleaned$pretrial_GAD, col = "red")
+``` 
+
+``` {r echo=FALSE}
+# QQ plot for Control Group Posttrial GAD
+qqnorm(control_group_cleaned$posttrial_GAD, main = "QQ Plot - Control Group Posttrial GAD")
+qqline(control_group_cleaned$posttrial_GAD, col = "red")
+```
+
+
+``` {r echo=FALSE}
+# QQ plot for Experimental Group Pretrial GAD
+qqnorm(experimental_group_cleaned$pretrial_GAD, main = "QQ Plot - Experimental Group Pretrial GAD")
+qqline(experimental_group_cleaned$pretrial_GAD, col = "red")
+```
+
+``` {r echo=FALSE}
+# QQ plot for Experimental Group Posttrial GAD
+qqnorm(experimental_group_cleaned$posttrial_GAD, main = "QQ Plot - Experimental Group Posttrial GAD")
+qqline(experimental_group_cleaned$posttrial_GAD, col = "red")
+```
+
+
+
+#### Visualization of STAI results for pre-trial and post-trial groups
 
 ``` {r echo=FALSE}
 # Visualizing the pre-trial STAI scores by group using a boxplot
@@ -262,28 +302,30 @@ ggplot(combined_groups, aes(x = pretrial_STAI, fill = "Pretrial")) +
   facet_wrap(~ group)
 ```
 
+
 ```{r echo=FALSE}
-# QQ plot for Control Group Pretrial GAD
-qqnorm(control_group_cleaned$pretrial_GAD, main = "QQ Plot - Control Group Pretrial GAD")
-qqline(control_group_cleaned$pretrial_GAD, col = "red")
+# QQ plot for Control Group Pretrial STAI
+qqnorm(control_group_cleaned$pretrial_STAI, main = "QQ Plot - Control Group Pretrial STAI")
+qqline(control_group_cleaned$pretrial_STAI, col = "red")
 ``` 
 
 ``` {r echo=FALSE}
-# QQ plot for Control Group Posttrial GAD
-qqnorm(control_group_cleaned$posttrial_GAD, main = "QQ Plot - Control Group Posttrial GAD")
-qqline(control_group_cleaned$posttrial_GAD, col = "red")
+# QQ plot for Control Group Posttrial STAI
+qqnorm(control_group_cleaned$posttrial_STAI, main = "QQ Plot - Control Group Posttrial STAI")
+qqline(control_group_cleaned$posttrial_STAI, col = "red")
 ```
+
 
 ``` {r echo=FALSE}
 # QQ plot for Experimental Group Pretrial STAI
-qqnorm(experimental_group_cleaned$pretrial_GAD, main = "QQ Plot - Experimental Group Pretrial STAI")
-qqline(experimental_group_cleaned$pretrial_GAD, col = "red")
+qqnorm(experimental_group_cleaned$pretrial_STAI, main = "QQ Plot - Experimental Group Pretrial STAI")
+qqline(experimental_group_cleaned$pretrial_STAI, col = "red")
 ```
 
 ``` {r echo=FALSE}
 # QQ plot for Experimental Group Posttrial STAI
-qqnorm(experimental_group_cleaned$posttrial_GAD, main = "QQ Plot - Experimental Group Posttrial STAI")
-qqline(experimental_group_cleaned$posttrial_GAD, col = "red")
+qqnorm(experimental_group_cleaned$posttrial_STAI, main = "QQ Plot - Experimental Group Posttrial STAI")
+qqline(experimental_group_cleaned$posttrial_STAI, col = "red")
 ```
 
 #### Testing for Normality
@@ -388,6 +430,3 @@ In summary, both extremely low p-values provide strong evidence that VR-based th
 ### References <a name="references"></a>
 
 
-- [Code for Knitr](https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html)
-- [STAI Min & Max values](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6945947/#:~:text=Each%20question%20is%20rated%20on,T%20and%20STAI%2DS%20subscales.)
-- [GAD Min & Max values](https://www.corc.uk.net/outcome-experience-measures/generalised-anxiety-disorder-assessment-gad-7/#:~:text=GAD%2D7%20total%20score%20for%20the%20seven%20items%20ranges%20from%200%20to%2021.)
