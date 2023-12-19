@@ -52,12 +52,12 @@ experimental_group <- read_csv("GROUP_12_2023_GCA_RESULTS_EXPERIMENTAL.csv")
 
 
 ## Abstract <a name="abstract"></a>
-This study investigates the efficacy of Virtual Reality (VR) as a therapeutic tool and compares it to traditional Cognitive Behavioral Therapy (CBT). Through an experiment, participants were assigned to either VR therapy (experimental group) or traditional CBT (control group) and their GAD and State-Trait Anxiety Inventory (STAI) scores were assessed pre and post-treatment. Our statistical analysis focuses on comparing these scores to evaluate therapy effectiveness. 
+This study investigates the efficacy of Virtual Reality (VR) as a therapeutic tool and compares it to traditional Cognitive Behavioral Therapy (CBT). Through an experiment, participants were assigned to either VR therapy (experimental group) or traditional CBT (control group) and their GAD and State-Trait Anxiety Inventory (STAI) scores were assessed pre and post-treatment. The results of our statistical analysis revealed a significant difference between the two groups. VR-based therapy demonstrated a significantly greater reduction in GAD and STAI scores compared to CBT, suggesting its potential as an effective treatment for anxiety disorders.
 
 ## Introduction <a name="introduction"></a>
 As of 2019, approximately 301 million people globally suffer from anxiety disorders, characterized by persistent feelings of anxiety and fear. Virtual Reality (VR) has emerged as a promising therapeutic tool, offering immersive exposure experiences for controlled treatment. Studies demonstrate VR's effectiveness in reducing symptoms of post-traumatic stress disorder and acrophobia, indicating its transformative potential in anxiety disorder treatments. Non-pharmacological therapies, notably Cognitive Behavioral Therapy, are commonly used for Generalized Anxiety Disorder (GAD), employing approaches like Imaginal Exposure Therapy and Stress Inoculation Training. Severity assessment often involves self-report mechanisms such as the State-Trait Anxiety Inventory and Generalized Anxiety Disorder 7-item scale, both scaled from 0 to 10, contributing to a nuanced understanding of anxiety disorders and guiding tailored therapeutic interventions.
 
-This study will look at the results of an experiment comparing GAD and STAI scores of patients treated using traditional CBT (Control Group) and VR Therapy (Experimental Group) to identify the degree to which VR therapy has an effect compartive to proven therapy techniques.
+This study will look at the results of an experiment comparing GAD and STAI scores of patients treated using traditional CBT (Control Group) and VR Therapy (Experimental Group) to identify the degree to which VR therapy has an effect comparative to proven therapy techniques.
 
 
 ## Method <a name="method"></a>
@@ -416,7 +416,7 @@ sw_result4 <- print_sw_results(control_posttrial_STAI_sw)
 From results of all Normality tests we can conclusively confirm the data to be normally distributed.
 
 ### Results <a name="results"></a>
-### Hypothesis testings
+### Hypothesis testing
 
 Now that we have tested for normality, we can assume that all datasets are normally distributed, which allows us to proceed with parametric tests. Our focus is the change in scores from pre-trial to post-trial within each group. To analyze this, we'll use paired T-tests, comparing pre-trial and post-trial scores for each participant within the control and experimental groups. This allows us to assess the effect of each treatment type within the respective groups and establish a comparison for their effectiveness. 
 
