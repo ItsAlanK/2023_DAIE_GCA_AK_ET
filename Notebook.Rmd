@@ -173,7 +173,7 @@ experimental_group_cleaned$group <- 'Experimental'
 combined_groups <- rbind(control_group_cleaned, experimental_group_cleaned)
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, comment=NA}
 
 # Visualizing the pre-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = pretrial_GAD, fill = group)) +
@@ -181,22 +181,24 @@ ggplot(combined_groups, aes(x = group, y = pretrial_GAD, fill = group)) +
     labs(title = "Pre-Trial GAD Scores by Group", x = "Group", y = "Pre-Trial GAD Score")
 
 control_pretrial_GAD_mean <- mean(control_group_cleaned$pretrial_GAD)
-control_posttrial_GAD_mean <- mean(control_group_cleaned$posttrial_GAD)
-control_pretrial_GAD_mean
-control_posttrial_GAD_mean
+experimental_pretrial_GAD_mean <- mean(experimental_group_cleaned$pretrial_GAD)
+
+cat("Control Pre Trial mean GAD score: ", control_pretrial_GAD_mean)
+cat("Experimental Pre Trial mean GAD score: ", experimental_pretrial_GAD_mean, sep="\n")
 ```
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, comment=NA}
 # Visualizing the post-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = posttrial_GAD, fill = group)) +
     geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
     labs(title = "Post-Trial GAD Scores by Group", x = "Group", y = "Post-Trial GAD Score")
 
-experimental_pretrial_GAD_mean <- mean(experimental_group_cleaned$pretrial_GAD)
+control_posttrial_GAD_mean <- mean(control_group_cleaned$posttrial_GAD)
 experimental_posttrial_GAD_mean <- mean(experimental_group_cleaned$posttrial_GAD)
-experimental_pretrial_GAD_mean
-experimental_posttrial_GAD_mean
+
+cat("Control Pre Trial mean GAD score: ", control_posttrial_GAD_mean)
+cat("Experimental Pre Trial mean GAD score: ", experimental_posttrial_GAD_mean, sep="\n")
 ```
 
 ```{r echo=FALSE}
