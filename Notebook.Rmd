@@ -197,8 +197,8 @@ ggplot(combined_groups, aes(x = group, y = posttrial_GAD, fill = group)) +
 control_posttrial_GAD_mean <- mean(control_group_cleaned$posttrial_GAD)
 experimental_posttrial_GAD_mean <- mean(experimental_group_cleaned$posttrial_GAD)
 
-cat("Control Pre Trial mean GAD score: ", control_posttrial_GAD_mean)
-cat("Experimental Pre Trial mean GAD score: ", experimental_posttrial_GAD_mean, sep="\n")
+cat("Control Post Trial mean GAD score: ", control_posttrial_GAD_mean)
+cat("Experimental Post Trial mean GAD score: ", experimental_posttrial_GAD_mean, sep="\n")
 ```
 
 ```{r echo=FALSE}
