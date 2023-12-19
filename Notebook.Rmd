@@ -435,4 +435,6 @@ In summary, both extremely low p-values provide strong evidence that VR-based th
 
 ### References <a name="references"></a>
 
-
+- [STAI Information informing min/max scores](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6945947/#:~:text=Each%20question%20is%20rated%20on,T%20and%20STAI%2DS%20subscales.)
+- [GAD Information informing min/max scores](https://www.corc.uk.net/outcome-experience-measures/generalised-anxiety-disorder-assessment-gad-7)
+- Normality testing conditional logic from [Class Example 9](https://github.com/nmcguinness/2023_MSC_DataAnalytics_IntroToR/blob/main/Examples/9_TestingForNormality.R)
