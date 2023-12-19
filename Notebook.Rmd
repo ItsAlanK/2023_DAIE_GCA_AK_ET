@@ -452,6 +452,11 @@ In summary, both extremely low p-values provide strong evidence that VR-based th
 
 ### References <a name="references"></a>
 
-- [STAI Information informing min/max scores](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6945947/#:~:text=Each%20question%20is%20rated%20on,T%20and%20STAI%2DS%20subscales.)
-- [GAD Information informing min/max scores](https://www.corc.uk.net/outcome-experience-measures/generalised-anxiety-disorder-assessment-gad-7)
-- Normality testing conditional logic from [Class Example 9](https://github.com/nmcguinness/2023_MSC_DataAnalytics_IntroToR/blob/main/Examples/9_TestingForNormality.R)
+- State and Trait Anxiety Scores of Patients Receiving Intravitreal Injections, NCBI, 2017. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6945947/ [Accessed 19 Dec. 2023].
+- CORC. (2023). Generalised Anxiety Disorder Assessment (GAD-7). [online] Available at: https://www.corc.uk.net/outcome-experience-measures/generalised-anxiety-disorder-assessment-gad-7 [Accessed 19 Dec. 2023].
+- RStudio. (2023). R Markdown Quick Tour. [online] Available at: https://rmarkdown.rstudio.com/authoring_quick_tour.html [Accessed 19 Dec. 2023].
+- Martin, G. (2023). Clean your data with R. R programming for beginners. [video] Available at: https://www.youtube.com/watch?v=sV5lwAJ7vnQ [Accessed 19 Dec. 2023].
+- McGuinness, N. (2023). 2023_MSC_DataAnalytics_IntroToR/Examples/9_TestingForNormality.R. [online] GitHub. Available at: https://github.com/nmcguinness/2023_MSC_DataAnalytics_IntroToR/blob/main/Examples/9_TestingForNormality.R [Accessed 19 Dec. 2023].
+- "12.5 The anatomy of a Notebook / R Markdown file." In R for Health Data Science. [online] Available at: https://argoshare.is.ed.ac.uk/healthyr_book/the-anatomy-of-a-notebook-r-markdown-file.html [Accessed 19 Dec. 2023].
+- Statistics Solutions. (2023). Paired Sample T-Test. [online] Available at: https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/paired-sample-t-test/ [Accessed 19 Dec. 2023].
+- STHDA. (2023). ggplot2 box plot: Quick start guide - R software and data visualization. [online] Available at: http://www.sthda.com/english/wiki/ggplot2-box-plot-quick-start-guide-r-software-and-data-visualization [Accessed 19 Dec. 2023].
