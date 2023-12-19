@@ -177,7 +177,7 @@ combined_groups <- rbind(control_group_cleaned, experimental_group_cleaned)
 
 # Visualizing the pre-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = pretrial_GAD, fill = group)) +
-    geom_boxplot() +
+    geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
     labs(title = "Pre-Trial GAD Scores by Group", x = "Group", y = "Pre-Trial GAD Score")
 
 control_pretrial_GAD_mean <- mean(control_group_cleaned$pretrial_GAD)
@@ -190,7 +190,7 @@ control_posttrial_GAD_mean
 ```{r echo=FALSE}
 # Visualizing the post-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = posttrial_GAD, fill = group)) +
-    geom_boxplot() +
+    geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
     labs(title = "Post-Trial GAD Scores by Group", x = "Group", y = "Post-Trial GAD Score")
 
 experimental_pretrial_GAD_mean <- mean(experimental_group_cleaned$pretrial_GAD)
@@ -222,7 +222,7 @@ ggplot(combined_groups, aes(x = pretrial_GAD, fill = "Pretrial")) +
 ``` {r echo=FALSE}
 # Visualizing the pre-trial STAI scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = pretrial_STAI, fill = group)) +
-    geom_boxplot() +
+    geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
     labs(title = "Pre-Trial STAI Scores by Group", x = "Group", y = "Pre-Trial STAI Score")
 
 # Calling the mean of each group for future reference
@@ -236,7 +236,7 @@ experimental_posttrial_STAI_mean <- mean(experimental_group_cleaned$posttrial_ST
 ``` {r echo=FALSE}
 # Visualizing the post-trial STAI scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = posttrial_STAI, fill = group)) +
-    geom_boxplot() +
+    geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
     labs(title = "Post-Trial STAI Scores by Group", x = "Group", y = "Post-Trial STAI Score")
 ```
 
