@@ -63,7 +63,7 @@ This study will look at the results of an experiment comparing GAD and STAI scor
 ## Method <a name="method"></a>
 ### Initial Inspection <a name="inspection"></a>
 
-Initial inspection shows the same data types on both datasets. Patients are categorized by gender, and there are numeric scores for Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory (STAI). We have results both for pretrial testing and post trial testing. 
+Initial inspection shows the same data types on both datasets. Patients are categorized by gender, and there are numeric scores for Generalized Anxiety Disorder (GAD) and State-Trait Anxiety Inventory (STAI). We have results both for pre-trial testing and post trial testing. 
 
 Our preliminary analysis shows consistency in data types and formats. The summary is showing some insight on how the data is distributed, which may indicate initial differences between both treatments. There are also some outliers visible within the minimum values that might need to be looked at during our cleaning process. We need to first understand if negative values are possible in this type of results and if they could skew our results to the wrong conclusions.
 
@@ -152,7 +152,7 @@ count_experimental_cleaned <- count(experimental_group_cleaned)
 
 #### Hypothesis Formulation
 
-After our initial inspection, we compared the difference between means of pretrial and post-trial scores for both GAD and STAI results. Our observations have led us to the following hypotheses:
+After our initial inspection, we compared the difference between means of pre-trial and post-trial scores for both GAD and STAI results. Our observations have led us to the following hypotheses:
 
 - **Null Hypothesis (H0):** VR-based therapy does not have a significant difference in effectiveness from traditional CBT therapy in treating Generalized Anxiety Disorder (GAD).
 
@@ -175,19 +175,18 @@ combined_groups <- rbind(control_group_cleaned, experimental_group_cleaned)
 ```
 
 
-#### Visualization of GAD results for pretrial and post-trial groups
+#### Visualization of GAD results for pre-trial and post-trial groups
 
 The boxplots provide an initial visual indication of the data's distribution. In the control group, the boxplot reveals a slight asymmetry in post-trial GAD scores, suggesting potential skewness. Comparatively, the experimental group's boxplots shows a more symmetric distribution, aligning closer with normality. 
 
 ```{r echo=FALSE, comment=NA}
 
-# Visualizing the pretrial GAD scores by group using a boxplot
+# Visualizing the pre-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = pretrial_GAD, fill = group)) +
     geom_boxplot(outlier.colour ="black", outlier.shape = 8, outlier.size = 10) +
     labs(title = "Pre-Trial GAD Scores by Group", x = "Group", y = "Pre-Trial GAD Score")
 
 control_pretrial_GAD_mean <- mean(control_group_cleaned$pretrial_GAD)
-<<<<<<< Updated upstream
 experimental_pretrial_GAD_mean <- mean(experimental_group_cleaned$pretrial_GAD)
 
 cat("Control Pre Trial mean GAD score: ", control_pretrial_GAD_mean)
@@ -196,10 +195,8 @@ cat("Experimental Pre Trial mean GAD score: ", experimental_pretrial_GAD_mean, s
 
 
 ```{r echo=FALSE, comment=NA}
-=======
 control_posttrial_GAD_mean <- mean(control_group_cleaned$posttrial_GAD)
 
->>>>>>> Stashed changes
 # Visualizing the post-trial GAD scores by group using a boxplot
 ggplot(combined_groups, aes(x = group, y = posttrial_GAD, fill = group)) +
     geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
@@ -208,14 +205,12 @@ ggplot(combined_groups, aes(x = group, y = posttrial_GAD, fill = group)) +
 control_posttrial_GAD_mean <- mean(control_group_cleaned$posttrial_GAD)
 experimental_posttrial_GAD_mean <- mean(experimental_group_cleaned$posttrial_GAD)
 
-<<<<<<< Updated upstream
+
 cat("Control Post Trial mean GAD score: ", control_posttrial_GAD_mean)
 cat("Experimental Post Trial mean GAD score: ", experimental_posttrial_GAD_mean, sep="\n")
-=======
->>>>>>> Stashed changes
 ```
 
-In this joint histograms and density plots we can look for the distribution curves of our data. The control group's pretrial GAD scores exhibit a bell-shaped curve but with noticeable deviations, hinting at a non-normal distribution; the same can be said of the Experimental group's post-trial results. In contrast, the experimental group's pre-trial GAD scores display a more uniform bell shape, suggesting normality. The varying peak heights and spread of the histograms across different test scores highlight the diverse response patterns between the two groups.
+In this joint histograms and density plots we can look for the distribution curves of our data. The control group's pre-trial GAD scores exhibit a bell-shaped curve but with noticeable deviations, hinting at a non-normal distribution; the same can be said of the Experimental group's post-trial results. In contrast, the experimental group's pre-trial GAD scores display a more uniform bell shape, suggesting normality. The varying peak heights and spread of the histograms across different test scores highlight the diverse response patterns between the two groups.
 
 ```{r echo=FALSE}
 # Histogram for GAD scores
@@ -266,17 +261,14 @@ par(mfrow = c(1, 1))
 
 
 
-#### Visualization of STAI results for pretrial and post-trial groups
+#### Visualization of STAI results for pre-trial and post-trial groups
 
-When reviewing STAI results in boxplots, we can see a slight asymmetry in the pretrial scores for the control group and the post-trial scores for the experimental group. The other two groups show a more symmetric distribution although it is important to not that the pretrial experimental group contains outliers further from the IQR.  normality. 
+When reviewing STAI results in boxplots, we can see a slight asymmetry in the pre-trial scores for the control group and the post-trial scores for the experimental group. The other two groups show a more symmetric distribution although it is important to not that the pre-trial experimental group contains outliers further from the IQR.  normality. 
 
-<<<<<<< Updated upstream
+
 ``` {r echo=FALSE, comment=NA}
 # Visualizing the pre-trial STAI scores by group using a boxplot
-=======
-``` {r echo=FALSE}
-# Visualizing the pretrial STAI scores by group using a boxplot
->>>>>>> Stashed changes
+
 ggplot(combined_groups, aes(x = group, y = pretrial_STAI, fill = group)) +
     geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
     labs(title = "Pretrial STAI Scores by Group", x = "Group", y = "Pretrial STAI Score")
@@ -298,27 +290,12 @@ control_posttrial_STAI_mean <- mean(control_group_cleaned$posttrial_STAI)
 experimental_pretrial_STAI_mean <- mean(experimental_group_cleaned$pretrial_STAI)
 experimental_posttrial_STAI_mean <- mean(experimental_group_cleaned$posttrial_STAI)
 
-<<<<<<< Updated upstream
-cat("Control Pre Trial mean STAI score: ", control_pretrial_STAI_mean)
-cat("Experimental Pre Trial mean STAI score: ", experimental_pretrial_STAI_mean, sep="\n")
-```
-
-``` {r echo=FALSE, comment=NA}
-# Visualizing the post-trial STAI scores by group using a boxplot
-ggplot(combined_groups, aes(x = group, y = posttrial_STAI, fill = group)) +
-    geom_boxplot(outlier.colour = "black", outlier.shape = 8, outlier.size = 10) +
-    labs(title = "Post-Trial STAI Scores by Group", x = "Group", y = "Post-Trial STAI Score")
 
 cat("Control Pre Trial mean STAI score: ", control_pretrial_STAI_mean)
 cat("Experimental Pre Trial mean STAI score: ", experimental_pretrial_STAI_mean, sep="\n")
 ```
-=======
-```
-
 
 The control group's pre-trial and post-trial STAI scores exhibit a bell-shaped curve with only slight deviations, hinting at normality. In contrast, pre-trial and post-trial results for the experimental group display a less uniform bell shape, suggesting the opposite. The varying peak heights are much more subtle than in the GAD scores. 
-
->>>>>>> Stashed changes
 
 ``` {r echo=FALSE}
 # Histogram for STAI scores
@@ -441,7 +418,7 @@ From results of all Normality tests we can conclusively confirm the data to be n
 ### Results <a name="results"></a>
 ### Hypothesis testings
 
-Now that we have tested for normality, we can assume that all datasets are normally distributed, which allows us to proceed with parametric tests. Our focus is the change in scores from pretrial to posttrial within each group. To analyze this, we'll use paired T-tests, comparing pretrial and posttrial scores for each participant within the control and experimental groups. This allows us to assess the effect of each treatment type within the respective groups and establish a comparison for their effectiveness. 
+Now that we have tested for normality, we can assume that all datasets are normally distributed, which allows us to proceed with parametric tests. Our focus is the change in scores from pre-trial to post-trial within each group. To analyze this, we'll use paired T-tests, comparing pre-trial and post-trial scores for each participant within the control and experimental groups. This allows us to assess the effect of each treatment type within the respective groups and establish a comparison for their effectiveness. 
 
 ```{r echo=FALSE}
 
